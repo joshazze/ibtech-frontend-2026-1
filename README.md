@@ -1,19 +1,18 @@
 # IbTech — Trilha Frontend 2026.1
 
-Revisões **aprovadas** das entregas dos projetos da Trilha Frontend da IbTech (turma 2026.1).
-
-## Política de inclusão
-
-Apenas revisões com **status final aprovado** entram neste repositório. Revisões em andamento (reentregas pendentes) ficam apenas no repositório individual da aluna ou aluno até a aprovação final.
+Revisões das entregas dos projetos da Trilha Frontend da IbTech (turma 2026.1).
 
 ## Organização
 
-Cada projeto tem sua pasta. Dentro dela, um arquivo `.md` por aluna ou aluno com a revisão final.
+Cada projeto tem sua pasta. Dentro dela, um arquivo `.md` por aluna ou aluno com a revisão completa.
 
 ```
 projeto01-cartao-visita/
+├── ana-julia-rossi.md
 ├── laura-marcolino.md
-└── ...
+├── luiza-paviotti.md
+├── manuella-pinheiro.md
+└── pedro-moreira.md
 ```
 
 ## Sobre as revisões
@@ -27,7 +26,7 @@ As revisões são **didáticas**: o objetivo é explicar o **porquê** de cada c
 5. **Checklist de reentrega** — em ordem sugerida de execução
 6. **Considerações finais** — encorajamento + dicas práticas
 
-Quando há reentrega, a revisão consolidada inclui a avaliação final (aprovação) em destaque e a revisão inicial logo abaixo, pra preservar o histórico de aprendizado.
+Quando há reentrega aprovada, a revisão consolidada inclui a avaliação final em destaque e a revisão inicial logo abaixo, pra preservar o histórico de aprendizado.
 
 ## Projetos
 
