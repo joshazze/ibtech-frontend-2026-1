@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <!-- define o padrão de caracteres -->
+  <meta charset="UTF-8">
+
+  <!-- ajuda o site a funcionar direito no celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- descrição da página -->
+  <meta name="description" content="Portfólio pessoal de Gabriela Cristina Amorim Lacerda">
+
+  <!-- infos que aparecem quando o link é compartilhado -->
+  <meta property="og:title" content="Gabriela Lacerda">
+  <meta property="og:description" content="Portfólio pessoal de Gabriela Lacerda">
+  <meta property="og:image" content="assets/og-image.png">
+
+  <!-- nome da aba -->
+  <title>Gabriela Lacerda</title>
+
+  <!-- ícone da aba -->
+  <link rel="icon" href="assets/favicon.png">
+
+  <!-- conecta o css -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- importa as fontes -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- menu fixo -->
+  <nav>
+    <div class="cnt">
+      <div class="nav-inner">
+
+        <!-- nome/logo -->
+        <span class="logo">Gabriela</span>
+
+        <!-- links do menu -->
+        <div class="nlinks">
+          <a href="#sobre">sobre</a>
+          <a href="#cursos">cursos</a>
+          <a href="#skills">skills</a>
+          <a href="#hobbies">interesses</a>
+          <a href="#midia">vídeo</a>
+          <a href="#contato">contato</a>
+        </div>
+
+        <!-- botão de trocar tema -->
+        <button id="theme-toggle" type="button" aria-label="Alternar tema">🌓</button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- parte principal -->
+  <main>
+
+    <!-- seção inicial -->
+    <header class="hero cnt">
+      <div class="hero-content">
+
+        <!-- lado esquerdo -->
+        <div class="hero-text fade-in">
+
+          <!-- curso -->
+          <div class="sec-pill">IBMEC BH • CDIA</div>
+
+          <!-- título principal -->
+          <h1 class="hero-name">Gabriela Lacerda</h1>
+
+          <!-- texto com efeito digitando -->
+          <p class="hero-subtitle" id="typewriter">
+            Ciência de Dados & Inteligência Artificial
+          </p>
+
+          <!-- terminal decorativo -->
+          <div class="terminal">
+
+            <div class="terminal-top">
+
+              <!-- bolinhas decorativas -->
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+
+            </div>
+
+            <div class="terminal-body">
+              <div class="terminal-line">
+                <span>></span> iniciando portfólio...
+              </div>
+
+              <div class="terminal-line">
+                <span>></span> estudante de Ciência de Dados & IA no IBMEC BH
+              </div>
+
+              <div class="terminal-line">
+                <span>></span> interesses: tecnologia, programação e cybersegurança
+              </div>
+
+              <div class="terminal-line">
+                <span>></span> carregando experiências...
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- foto principal -->
+        <aside class="hero-image fade-in">
+          <img
+            src="assets/eye.jpg"
+            alt="Arte digital relacionada à vigilância digital e cybersegurança"
+            width="380"
+            height="620"
+            loading="eager">
+        </aside>
+
+      </div>
+    </header>
+
+    <!-- seção sobre mim -->
+    <section class="about fade-in" id="sobre">
+      <div class="cnt">
+
+        <span class="sec-num">01</span>
+
+        <h2 class="abt-destaque">Sobre Mim</h2>
+
+        <!-- texto sobre mim -->
+        <article class="abt-content">
+
+          <p class="abt-p">
+            Sou natural de Lagoa da Prata, Minas Gerais,
+            e atualmente curso Ciência de Dados & IA
+            no IBMEC BH desde 2025.
+            Tenho maior interesse na área de Segurança
+            Cibernética, principalmente pela combinação
+            entre tecnologia, lógica e investigação.
+          </p>
+
+          <p class="abt-p">
+            Antes de entrar na área de tecnologia,
+            me formei como técnica em veterinária.
+            Inicialmente, minha intenção ao me mudar
+            para Belo Horizonte era cursar Direito,
+            mas durante esse processo acabei descobrindo
+            uma identificação muito maior com tecnologia,
+            programação e desenvolvimento.
+          </p>
+
+          <p class="abt-p">
+            Atualmente busco ampliar meus conhecimentos
+            em desenvolvimento web, programação,
+            análise de dados e cybersegurança.
+            Tenho experiência com HTML, CSS, Python,
+            C, SQL e Excel.
+          </p>
+
+        </article>
+      </div>
+    </section>
+
+    <!-- cards dos cursos -->
+    <section class="about fade-in" id="cursos">
+      <div class="cnt">
+
+        <span class="sec-num">02</span>
+
+        <h2 class="abt-destaque">Cursos</h2>
+
+        <div class="bento-grid">
+
+          <!-- card que vira -->
+          <article class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <h3>Google</h3>
+              </div>
+
+              <div class="flip-back">
+                <p>Introdução à Programação Python.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <h3>UPENN</h3>
+              </div>
+
+              <div class="flip-back">
+                <p>Estratégia de impacto social.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <h3>IBM</h3>
+              </div>
+
+              <div class="flip-back">
+                <p>Arquitetura de segurança cibernética.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <h3>Macquarie</h3>
+              </div>
+
+              <div class="flip-back">
+                <p>Cyber Security: Essentials for AI.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- skills -->
+    <section class="about fade-in" id="skills">
+      <div class="cnt">
+
+        <span class="sec-num">03</span>
+
+        <h2 class="abt-destaque">Skills</h2>
+
+        <div class="bento-grid">
+
+          <article class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <h3>Frontend</h3>
+              </div>
+
+              <div class="flip-back">
+                <p>HTML, CSS e interfaces responsivas.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <h3>Python</h3>
+              </div>
+
+              <div class="flip-back">
+                <p>Lógica, automação e fundamentos de programação.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <h3>SQL & Dados</h3>
+              </div>
+
+              <div class="flip-back">
+                <p>SQL, Excel e análise de dados.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <h3>C</h3>
+              </div>
+
+              <div class="flip-back">
+                <p>Programação estruturada e lógica computacional.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- interesses -->
+    <section class="about fade-in" id="hobbies">
+      <div class="cnt">
+
+        <span class="sec-num">04</span>
+
+        <h2 class="abt-destaque">Interesses</h2>
+
+        <div class="interest-grid">
+
+          <!-- card com imagem e texto -->
+          <article class="interest-card">
+            <img
+              src="assets/writing.jpg"
+              alt="Ilustração relacionada à escrita e tecnologia"
+              width="500"
+              height="260"
+              loading="lazy">
+
+            <div class="interest-info">
+              <h3>Escrita</h3>
+              <p>Gosto de escrever artigos de opinião, textos e poemas.</p>
+            </div>
+          </article>
+
+          <article class="interest-card">
+            <img
+              src="assets/reading.jpg"
+              alt="Imagem artística sobre leitura e tecnologia"
+              width="500"
+              height="260"
+              loading="lazy">
+
+            <div class="interest-info">
+              <h3>Leitura</h3>
+              <p>Interesse em histórias reais, guerras, geografia e acontecimentos históricos.</p>
+            </div>
+          </article>
+
+          <article class="interest-card">
+            <img
+              src="assets/pilates.jpg"
+              alt="Pessoa praticando pilates"
+              width="500"
+              height="260"
+              loading="lazy">
+
+            <div class="interest-info">
+              <h3>Pilates</h3>
+              <p>Uma forma de sair um pouco da rotina e desacelerar.</p>
+            </div>
+          </article>
+
+          <article class="interest-card">
+            <img
+              src="assets/cooking.jpg"
+              alt="Pessoa cozinhando"
+              width="500"
+              height="260"
+              loading="lazy">
+
+            <div class="interest-info">
+              <h3>Culinária</h3>
+              <p>Gosto de cozinhar receitas diferentes e sobremesas.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- vídeo do youtube -->
+    <section class="about fade-in" id="midia">
+      <div class="cnt">
+
+        <span class="sec-num">05</span>
+
+        <h2 class="abt-destaque">
+          Sobre a área que quero seguir:
+        </h2>
+
+        <div class="video-wrap">
+
+          <!-- vídeo incorporado -->
+          <iframe
+            src="https://www.youtube.com/embed/inWWhr5tnEA"
+            title="Vídeo explicando cybersegurança"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- rodapé -->
+  <footer id="contato">
+    <div class="cnt">
+
+      <h2 class="contact-h">Contatos</h2>
+
+      <div class="contact-links">
+
+        <!-- botão de copiar email -->
+        <button id="emailBtn" type="button" class="clink">
+          <span class="clink-lbl">e-mail</span>
+          <span class="clink-val">gabicalacerda@gmail.com</span>
+        </button>
+
+        <!-- links externos -->
+        <a
+          href="https://github.com/gabicalacerda"
+          class="clink"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <span class="clink-lbl">github</span>
+          <span class="clink-val">@gabicalacerda</span>
+        </a>
+
+        <a
+          href="https://br.linkedin.com/in/gabriela-lacerda-042664320"
+          class="clink"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <span class="clink-lbl">linkedin</span>
+          <span class="clink-val">Gabriela Lacerda</span>
+        </a>
+
+        <!-- abre ligação no celular -->
+        <a href="tel:37999550778" class="clink">
+          <span class="clink-lbl">telefone</span>
+          <span class="clink-val">(37) 99955-0778</span>
+        </a>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- conecta o javascript -->
+  <script src="script.js"></script>
+
+</body>
+</html>

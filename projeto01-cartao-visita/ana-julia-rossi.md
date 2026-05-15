@@ -1,3 +1,270 @@
+# Revisão v2 — Projeto 01 Cartão de Visita
+
+**Aluna:** Ana Júlia Rossi
+**Turma:** IbTech Frontend 2026.1
+**Status:** Reentrega necessária
+**Reentrega de:** revisão v1 (ver histórico no fim do arquivo central)
+
+Oi Ana Júlia! Antes de tudo: **dá pra ver progresso de verdade desde a primeira versão.** O HTML não está mais embaralhado como antes (lembra das tags fechando em lugar errado e do conteúdo depois do `</html>`? isso sumiu), você adicionou o modo escuro funcionando com persistência, e criou a seção de galeria. Isso é evolução real — guarde essa sensação.
+
+Dito isso, esta v2 ainda está num estágio de **rascunho avançado**: vários requisitos da diretriz ainda não estão na página, e há um bug que veio da v1 e não foi corrigido (o `alert` no copiar e-mail). Vou ser detalhada de propósito — o objetivo é te explicar o **porquê** de cada critério pra você fechar de vez na próxima rodada.
+
+---
+
+## O que já está bom
+
+- **Progresso desde a v1.** O HTML está estruturado, o modo escuro foi adicionado e persiste, a galeria entrou. Você não estagnou — andou.
+- **Identidade visual coerente.** A paleta rosa/lilás (`#d97fa6`, `#f3d8ff`, `#f8f4ef`) com a fonte Poppins tem personalidade. O "feel" da página é seu.
+- **Animação de flutuar na foto** (`style.css:188-193`). Um `@keyframes flutuar` próprio, aplicado com `animation`. Limpo.
+- **A "bolha" decorativa** (`style.css:85-95`) é uso *correto* de `position: absolute` — pra um detalhe visual, não pra montar layout. É exatamente o que a diretriz pede.
+- **Reset CSS no topo** (`style.css:1-5`). Boa prática que falta em muitos projetos.
+- **Modo escuro com persistência.** O tema salva em `localStorage` e o ícone troca entre 🌙 e ☀️ (`script.js:9-55`).
+- **Links externos seguros.** Instagram, GitHub e LinkedIn com `target="_blank"` e `rel="noopener noreferrer"` (`index.html:163-189`).
+
+---
+
+## Bloqueadores
+
+Pela tabela da seção 7 da diretriz, cada linha vermelha já basta pra reentrega. Aqui há sete — vou começar pelos que **consertam o que já existe**, e depois os que pedem **adicionar o que falta**.
+
+### 1. As imagens não aparecem — caminho errado (`index.html:67, 131, 136`)
+
+Este é o mais urgente porque hoje a página está **sem nenhuma imagem**. O HTML procura as fotos em `assets/minhafoto.jpg`, `assets/ibmec.jpg.jpeg` e `assets/estudando.jpg.jpeg` — mas **não existe uma pasta `assets/`** no repositório. As imagens estão soltas na raiz.
+
+Duas formas de resolver (escolha uma):
+
+- **Opção A (recomendada):** crie a pasta `assets/` e mova as três imagens pra dentro dela. Aí os caminhos do HTML ficam corretos. É o que a diretriz (seção 5) pede como estrutura.
+- **Opção B:** mantenha as imagens na raiz e tire o `assets/` dos caminhos no HTML.
+
+Aproveite e renomeie `ibmec.jpg.jpeg` e `estudando.jpg.jpeg` — o `.jpg.jpeg` é uma extensão dupla, provavelmente erro de salvamento. Deixe só `ibmec.jpg` e `estudando.jpg` (e ajuste no HTML).
+
+### 2. Falta o vídeo embedded
+
+A linha "Mídia" da tabela exige **3 fotos e 1 vídeo embedded**. As fotos existem (depois que o caminho for corrigido); o vídeo não. Adicione uma seção de vídeo:
+
+```html
+<section class="video-section" id="video">
+    <h2>Um vídeo sobre o que me interessa</h2>
+    <div class="video-wrap">
+        <iframe
+            src="https://www.youtube.com/embed/SEU_ID_AQUI"
+            title="Vídeo escolhido por Ana Júlia"
+            loading="lazy"
+            allowfullscreen></iframe>
+    </div>
+</section>
+```
+
+```css
+.video-wrap { max-width: 800px; margin: 2rem auto; }
+.video-wrap iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 20px;
+}
+```
+
+### 3. Copiar e-mail usa `alert()` e não copia de verdade (`script.js:1-7`)
+
+Este bug veio da v1 e ainda está aqui. Hoje, clicar no e-mail só dispara `alert("E-mail copiado!")` — mas **nada é copiado**. A mensagem afirma uma ação que não aconteceu.
+
+A diretriz é explícita em dois lugares: a tabela seção 7 reprova quem "usa `alert()`", e a seção 4.5 lista `alert()` como o que **não vale** como interação. O correto é a **Clipboard API** com feedback visual na própria página.
+
+Primeiro, no HTML, dê um `id` ao link do e-mail e um lugar pro feedback:
+
+```html
+<a class="email" id="email" href="mailto:ajuliarossim@gmail.com"
+   data-email="ajuliarossim@gmail.com">
+   ajuliarossim@gmail.com
+</a>
+<span id="email-feedback" class="email-feedback" role="status"></span>
+```
+
+No `script.js`, troque o bloco do `alert` por:
+
+```js
+const email = document.getElementById("email");
+const feedback = document.getElementById("email-feedback");
+
+email.addEventListener("click", async (evento) => {
+    evento.preventDefault(); // impede de abrir o cliente de e-mail
+    try {
+        await navigator.clipboard.writeText(email.dataset.email);
+        feedback.textContent = "E-mail copiado! ✓";
+    } catch {
+        feedback.textContent = "Não foi possível copiar.";
+    }
+    setTimeout(() => { feedback.textContent = ""; }, 2000);
+});
+```
+
+### 4. Falta a animação de entrada com IntersectionObserver
+
+A tabela tem uma linha só pra isso: as seções devem animar conforme entram na tela, usando `IntersectionObserver` (não um listener de scroll).
+
+```css
+.sobre-section,
+.skills-section,
+.galeria,
+.contato-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.aparece {
+    opacity: 1;
+    transform: translateY(0);
+}
+```
+
+```js
+const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) {
+            entrada.target.classList.add("aparece");
+            observador.unobserve(entrada.target);
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll("section").forEach((s) => observador.observe(s));
+```
+
+### 5. Sem variáveis CSS — cores hardcoded espalhadas (`style.css`)
+
+A tabela ("Variáveis e organização CSS") reprova "cores hardcoded espalhadas pelo arquivo". Hoje `#d97fa6`, `#f3d8ff`, `#f8f4ef`, `#555`, `#222`, `#666`, `#d96bb3` aparecem repetidos por todo o CSS. Junte tudo num `:root` no topo:
+
+```css
+:root {
+    --rosa: #d97fa6;
+    --rosa-forte: #d96bb3;
+    --lilas: #f3d8ff;
+    --creme: #f8f4ef;
+    --texto: #222;
+    --texto-suave: #555;
+}
+```
+
+E troque os valores soltos por `var(--rosa)`, `var(--lilas)` etc. O *porquê*: com as cores num lugar só, mudar a paleta do site inteiro é editar uma linha. **Bônus:** isso também resolve metade do bloqueador 7 (tema), porque o modo escuro vira só uma troca de valores das variáveis.
+
+### 6. Sem sistema tipográfico em variáveis (`style.css`)
+
+A tabela ("Sistema tipográfico") pede 4+ tamanhos de fonte definidos como variáveis. Hoje os tamanhos estão chumbados e misturando unidades — `7rem`, `2.5rem`, `1.1rem`, `0.9rem`, mas também `35px` (`style.css:221`) e `20px` (`style.css:204`). Padronize em `rem` e leve pro `:root`:
+
+```css
+:root {
+    /* ...cores... */
+    --fs-sm: 0.9rem;
+    --fs-base: 1.1rem;
+    --fs-lg: 1.3rem;
+    --fs-xl: 2.5rem;
+    --fs-hero: clamp(2.5rem, 9vw, 7rem);
+}
+```
+
+Use `var(--fs-hero)` no `h1`, `var(--fs-xl)` nos `h2`, e assim por diante.
+
+### 7. Sem responsividade — zero media queries (`style.css`)
+
+A tabela ("Responsividade") reprova "zero media queries". O CSS não tem nenhuma. Hoje o `h1 { font-size: 7rem }` (`style.css:60`) estoura num celular de 360px. Adicione pelo menos um breakpoint:
+
+```css
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 6rem 5%;
+    }
+    h1 { font-size: var(--fs-hero); line-height: 1.1; }
+    .bolha { display: none; }
+    nav { gap: 1.2rem; padding: 1.5rem 1rem; }
+    .foto-container img { width: 18rem; height: 18rem; }
+}
+```
+
+(O `clamp()` que sugeri no bloqueador 6 já ajuda o `h1` a se ajustar sozinho.)
+
+> Você também precisa de **pelo menos uma interação JS extra** além das três obrigatórias (menu mobile, modal, contador, filtro...). Quando arrumar o menu pra mobile, transformá-lo num menu hambúrguer com JS já resolve esse ponto de uma vez.
+
+---
+
+## O que precisa arrumar (flags)
+
+1. **Faltam `<main>` e `<footer>`** (`index.html`). As seções estão soltas direto no `<body>`. Envolva as seções de conteúdo num `<main>` e transforme a seção de contato (ou crie um trecho final) num `<footer>`. A diretriz pede essas tags semânticas.
+
+2. **`</body>` e `<script>` duplicados no fim do HTML** (`index.html:193-199`). O arquivo fecha o `<body>` duas vezes e carrega o `script.js` duas vezes. Deixe só uma vez, assim:
+   ```html
+       <script src="script.js"></script>
+   </body>
+   </html>
+   ```
+
+3. **Tema sem `prefers-color-scheme`.** O modo escuro persiste, mas não respeita a preferência do sistema na primeira visita. Adicione no `script.js`:
+   ```js
+   const temaSalvo = localStorage.getItem("tema");
+   const sistemaEscuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
+   if (temaSalvo === "escuro" || (temaSalvo === null && sistemaEscuro)) {
+       document.body.classList.add("dark");
+   }
+   ```
+
+4. **`onclick` inline no HTML + função duplicada no JS.** O botão de tema usa `onclick="modoEscuro()"` (`index.html:29`) e o `script.js` tem `modoEscuro` definida duas vezes (uma dentro do `window.onload`, `script.js:25`, e outra solta no fim, `script.js:56`, que não salva nada). Tire o `onclick` do HTML e ligue o botão por `addEventListener` no JS, e apague a função duplicada de baixo.
+
+5. **Faltam meta tags no `<head>`** (`index.html`): `description`, Open Graph (`og:title`, `og:description`, `og:image`) e `favicon`. A diretriz (seção 4.1 e checklist) pede todas.
+
+6. **README com lixo e stack incompleta.** O README tem uma linha `file:///C:/Users/rossi/Downloads/cartaodevisita/index.html` — um caminho local que vazou pro texto; apague. E a stack diz só "HTML5 · CSS3", mas o projeto tem JavaScript — inclua.
+
+---
+
+## Pontos menores
+
+- **A seção "Linguagens" tem só um item** ("C"). Vale listar mais habilidades ou áreas de interesse — a diretriz fala em "habilidades **ou** áreas de interesse", então cabe colocar o que você está estudando.
+- **`minhafoto.jpg` tem ~1,7 MB.** É bem pesado pra uma foto. Vale reduzir o tamanho (um exportador de imagem ou um site de compressão resolve) pra página carregar mais rápido.
+- **Imagens da galeria sem `width`/`height` nem `loading="lazy"`** (`index.html:130-138`). Definir dimensões evita a página "pular" enquanto carrega.
+
+---
+
+## Checklist de reentrega
+
+Sugestão de ordem — começa pelo que conserta o que já existe:
+
+1. [ ] Criar a pasta `assets/` e mover as imagens pra ela (bloqueador 1)
+2. [ ] Remover `</body>`/`<script>` duplicados (flag 2)
+3. [ ] Trocar o `alert` pela Clipboard API com feedback (bloqueador 3)
+4. [ ] Criar o `:root` com variáveis de cor e fonte (bloqueadores 5 e 6)
+5. [ ] Adicionar media query de responsividade (bloqueador 7)
+6. [ ] Animação de entrada com IntersectionObserver (bloqueador 4)
+7. [ ] Adicionar a seção de vídeo (bloqueador 2)
+8. [ ] Uma interação JS extra — menu hambúrguer é uma boa pedida
+9. [ ] Envolver o conteúdo em `<main>` e criar `<footer>` (flag 1)
+10. [ ] `prefers-color-scheme` + tirar `onclick` inline (flags 3 e 4)
+11. [ ] Meta tags `description`/OG/favicon (flag 5)
+12. [ ] Limpar o README (flag 6)
+13. [ ] Testar em 360px e 1920px no DevTools antes de reenviar
+
+---
+
+## Considerações finais
+
+Ana Júlia, leia isto com calma e sem desânimo. A lista é longa, mas repare numa coisa: a maioria dos bloqueadores é **adicionar** algo ou **organizar** o que já está lá — não é refazer. E você já provou, da v1 pra cá, que consegue evoluir o projeto.
+
+Uma sugestão de método: faça **um item do checklist por vez**, salve, abra a página no navegador e confira antes de passar pro próximo. Não tente fazer tudo de uma vez — é assim que erros se acumulam. Abra o DevTools (F12), use o modo responsivo pra testar 360px, e olhe o Console: se um JavaScript quebrar, o erro aparece lá.
+
+E um recado importante da diretriz (seção 9): pode usar IA pra te ajudar, mas leia e entenda cada trecho — os exemplos de código acima estão aí pra você estudar, não só colar. A Diretoria Técnica pode te pedir pra explicar qualquer parte.
+
+Você está no caminho. Faça item por item, sem pressa. Manda a v3.
+
+---
+*Revisão v2 por Josh — 2026-05-15*
+
+
+---
+
+# Histórico — Revisão v1
+
+> A revisão abaixo é da **versão 1** do projeto (repositório `ibtech-projeto01-anajuliarossi`), mantida como registro da primeira entrega.
+
 ## Revisão — Projeto 01 Cartão de Visita
 
 **Aluna:** Ana Júlia Rossi

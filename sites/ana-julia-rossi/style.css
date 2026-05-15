@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #f8f4ef;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    color: #222;
+    transition: 0.3s;
+}
+nav {
+    width: 100%;
+    padding: 2rem 5rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d97fa6;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    padding: 5rem 8%;
+    position: relative;
+    overflow: hidden;
+}
+
+.texto {
+    z-index: 2;
+}
+
+.mini {
+    color: #d97fa6;
+    letter-spacing: 4px;
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+}
+
+h1 {
+    font-size: 7rem;
+    line-height: 6.5rem;
+    max-width: 700px;
+}
+
+.descricao {
+    margin-top: 1.5rem;
+    color: #666;
+    font-size: 1.3rem;
+}
+
+.foto-container {
+    position: relative;
+    z-index: 2;
+}
+
+.foto-container img {
+    width: 25rem;
+    height: 25rem;
+    object-fit: cover;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+.bolha {
+    width: 35rem;
+    height: 35rem;
+    background: #f3d8ff;
+    border-radius: 50%;
+    position: absolute;
+    right: -10rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.sobre-section {
+    padding: 8rem 8%;
+    max-width: 900px;
+}
+
+.sobre-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.sobre-section p {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.skills-section {
+    padding: 0 8% 8rem;
+    max-width: 900px;
+}
+
+.skills-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.skills {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.skills span {
+    background: #f3d8ff;
+    color: #222;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.skills span:hover {
+    transform: translateY(-5px);
+}
+
+.contato-section {
+    padding: 0 8% 8rem;
+    max-width: 900px;
+}
+
+.contato-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contato-section p {
+    line-height: 1.8;
+}
+
+.email {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #d96bb3;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.botoes {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.botoes a {
+    text-decoration: none;
+    color: #222;
+    border: 1px solid #d96bb3;
+    padding: 0.9rem 1.5rem;
+    border-radius: 999px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.botoes a:hover {
+    background: #d96bb3;
+    color: white;
+    transform: translateY(-4px);
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+
+}
+header{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.tema-btn{
+    background-color: transparent;
+    border: 2px solid currentColor;
+    color: inherit;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tema-btn:hover{
+    transform: scale(1.1);
+}
+
+.galeria{
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.galeria h2{
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.imagens{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.imagens img{
+    width: 300px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.imagens img:hover{
+    transform: scale(1.03);
+}
+
+body.dark{
+    background: #121212;
+    color: white;
+}
+
+body.dark nav a{
+    color: white;
+}
+
+body.dark .descricao,
+body.dark .sobre-section p,
+body.dark .contato-section p{
+    color: #dcdcdc;
+}
+
+body.dark .skills span{
+    background: #2a2a2a;
+    color: white;
+}
+
+body.dark .botoes a{
+    color: white;
+    border: 1px solid #ffffff;
+}
+
+body.dark .botoes a:hover{
+    background: white;
+    color: black;
+}
+
+body.dark .bolha{
+    background: #2b1f38;
+}
+body.dark{
+    background: #121212;
+    color: white;
+}
