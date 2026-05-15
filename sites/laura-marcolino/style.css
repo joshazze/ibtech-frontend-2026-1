@@ -1,0 +1,882 @@
+/* Remove os espaços padrões do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*pra deixar as cores e tipografia todas com configuracoes gerais, sem precisar alterar um por um  */
+:root {
+    --cor-fundo: #f7f7f7;
+    --cor-texto: #000000;
+    --cor-header: #ffffff;
+    --cor-card: #ffffff;
+    --cor-borda: #222222;
+
+    --cor-marrom: #b89b72;
+    --cor-marrom-hover: #9c805c;
+    --cor-marrom-escuro: #4f3b26;
+    --cor-footer: #4f3b26;
+
+    --cor-texto-footer: #ffffff;
+    --cor-texto-suave: #f1e7d8;
+
+    /* tipografia */
+    --fs-xs: 0.75rem;        /* 12px */
+    --fs-sm: 0.875rem;       /* 14px */
+    --fs-base: 1rem;         /* 16px */
+    --fs-md: 1.125rem;       /* 18px */
+    --fs-lg: 1.375rem;       /* 22px */
+    --fs-overlay: 1.5rem;    /* 24px */
+    --fs-xl: 2rem;           /* 32px */
+    --fs-title-md: 2.25rem;  /* 36px */
+    --fs-xxl: 2.625rem;      /* 42px */
+}
+/* cores* tema noturno*/
+body.tema-escuro {
+    --cor-fundo: #17120d;
+    --cor-texto: #f7f0e8;
+    --cor-header: #211811;
+    --cor-card: #2a2118;
+    --cor-borda: #c2a276;
+
+    --cor-marrom: #c2a276;
+    --cor-marrom-hover: #a98555;
+    --cor-marrom-escuro: #211811;
+    --cor-footer: #211811;
+
+    --cor-texto-footer: #ffffff;
+    --cor-texto-suave: #e8d8c0;
+}
+
+/* defini a cor o fundo e fonte so site geraldd*/
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    position: relative;
+}
+
+/* Header cabecalho e coloca espaco em cima e em baixo */
+header {
+    background-color: var(--cor-header);
+    padding: 20px 0;
+}
+
+/* centralizou tudo pra nao ficar muito no canto da tela*/
+.interface {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* dentro do header jogou a logo pra esquerda e menu pro outro lado deixando alinhados sempre e com espaco */
+header .interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* imagem da logo */
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Nome da logo */
+.logo a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+}
+/* flex serve sempre pra deixar eles lado a lado*/
+.menu-desktop ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+/* Links do menu */
+.menu-desktop a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-size: var(--fs-base);
+    font-weight: 700;
+}
+
+/* Efeito ao passar o mouse no menu e mudar pra cor que deseja*/
+.menu-desktop a:hover {
+    color: var(--cor-marrom-hover);
+}
+
+/* incicio do site e esse min height altura em relacao ao resto   */
+.topo-site {
+    min-height: 580px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 100px;
+    background-color: var(--cor-fundo);
+}
+
+/* Centraliza o conteúdo do topo */
+.topo-site .interface {
+    display: flex;
+    justify-content: center;
+}
+
+/* Texto principal */
+.txt-topo-site {
+    text-align: center;
+}
+
+/* Título principal */
+.txt-topo-site h1 {
+    font-size: var(--fs-xxl);
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+/* Ponto preto no final do título vibe */
+.txt-topo-site h1 span {
+    color: var(--cor-marrom);
+}
+
+/* aumenta o texto abaixo do título e afasta ele do botão.*/
+.responsive-text {
+    font-size: var(--fs-lg);
+    margin-bottom: 45px;
+}
+
+/* Botão de projetos*/
+.btn-custom {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--cor-marrom);
+    color: var(--cor-texto-footer);
+    border: none;
+    padding: 12px 45px;
+    border-radius: 15px;
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    cursor: pointer;
+}
+/* Efeito no botão  */
+.btn-custom:hover {
+    background-color: var(--cor-marrom-hover);
+}
+
+
+
+/* comecamndo o SOBRE MIM agr */
+
+/* seção sobre Mim */
+.sobre {
+    background-color: var(--cor-fundo);
+    padding: 80px 0;
+}
+
+/* titulo da secao sobre mim */
+.sobre .titulo {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+/* texto SOBRE MIM */
+.sobre .titulo h2 {
+    font-size: var(--fs-xxl);
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--cor-texto);
+}
+
+/* risco embaixo do títul */
+.sobre .titulo span {
+    display: block;
+    width: 40px;
+    height: 4px;
+    background-color: var(--cor-marrom);
+    margin: 20px auto 0;
+    border-radius: 10px;
+}
+
+/* flex coloca lado a lado foto e texto */
+.sobre .flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+/* foto */
+.foto-sobre img {
+    width: 250px;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+/* Área do texto */
+.txt-sobre {
+    max-width: 650px;
+}
+
+/* Título "MUITO PRAZER..." */
+.txt-sobre h3 {
+    font-size: var(--fs-title-md);
+    line-height: 1.1;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: var(--cor-texto);
+}
+/* parte colorida do título */
+.txt-sobre h3 span {
+    display: block;       /* faz o span virar uma "linha" inteira */
+    color: var(--cor-marrom);
+}
+
+/* parágrafos */
+.txt-sobre p {
+    font-size: var(--fs-md);
+    line-height: 1.7;
+    margin-bottom: 18px;
+    color: var(--cor-texto);
+    text-align: justify;
+}
+
+.habilidades {
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+.habilidades h4 {
+    font-size: var(--fs-md);
+    color: var(--cor-marrom);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.habilidades ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.habilidades li {
+    background-color: var(--cor-card);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-marrom);
+    border-radius: 14px;
+    padding: 8px 14px;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+}
+
+/* Botões das redes sociais */
+.btn-social {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* botões cor */
+.btn-social button {
+    background-color: var(--cor-marrom);
+   color: var(--cor-texto-footer);
+    border: none;
+    padding: 10px 28px;
+    border-radius: 15px;
+    font-size: var(--fs-md);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Efeito quando passa o mouse */
+.btn-social button:hover {
+    background-color: var(--cor-marrom-hover);
+}
+
+/* parte de projetos agor */
+
+/* parte das laterais e coloca um do lado do outro e com espaco etc */
+
+section.portfolio {
+    padding: 80px 4%;
+    background-color: var(--cor-fundo);
+}
+
+
+section.portfolio .interface {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section.portfolio h2.titulo {
+    font-size: var(--fs-xl);
+    color: var(--cor-texto);
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+/* flex colocou os projetos lado a lado no caso*/
+section.portfolio .flex {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+/* colocou a imagem e o overflox faz ficar escuro */
+.img-port {
+    width: 330px;
+    height: 230px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--cor-card);
+    border-radius: 25px;
+    border: 2px solid var(--cor-borda);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.30);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: block;
+}
+.projeto-1 {
+    background-image: url("images/projeto1.png");
+}
+
+.projeto-2 {
+    background-image: url("images/projeto2.png");
+}
+
+.projeto-formatura {
+    background-image: url("images/formatura.JPEG");
+}
+
+.projeto-ibmec {
+    background-image: url("images/ibmec.JPEG");
+}
+
+/* efeito quando passa o mouse */
+.img-port:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
+}
+
+/* texto em cima do projeto quando passa por cima */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.65);
+    color: var(--cor-texto-footer);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: var(--fs-overlay);
+    font-weight: 700;
+
+    opacity: 0;
+    transition: 0.3s;
+}
+
+/* mostra o texto quando passa em cima dos projetos  */
+.img-port:hover .overlay {
+    opacity: 1;
+}
+
+/* Rdeixa responsivo  */
+@media screen and (max-width: 768px) {
+    section.portfolio {
+        padding: 60px 8%;
+    }
+
+    section.portfolio .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-port {
+        width: 100%;
+        max-width: 350px;
+        height: 240px;
+    }
+
+    section.portfolio h2.titulo {
+        font-size: var(--fs-xl);
+    }
+}
+
+footer {
+    background-color: var(--cor-footer);
+    padding: 35px 6% 25px;
+}
+footer .interface {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .line-footer .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+footer .titulonome h3 {
+    color: var(--cor-texto-footer);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+footer .titulonome p {
+    color: var(--cor-texto-suave);
+    font-size: var(--fs-sm);
+}
+
+footer .line-footer.borda {
+    border-top: 1px solid rgba(255, 255, 255, 0.55);
+    margin-top: 25px;
+    padding-top: 22px;
+}
+
+.contatos-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.contatos-footer span {
+    display: block;
+    color: var(--cor-marrom);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.contatos-footer a,
+.contatos-footer button {
+    color: var(--cor-texto-footer);
+    font-size: var(--fs-base);
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+.contatos-footer a:hover,
+.contatos-footer button:hover {
+    color: var(--cor-marrom);
+}
+
+#mensagem-copiado {
+    color: var(--cor-marrom);
+    font-size: var(--fs-sm);
+    margin-top: 6px;
+}
+
+@media screen and (max-width: 768px) {
+    footer .line-footer .flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contatos-footer {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+}
+
+/* elemento craitivo pontos estrelas no body*/
+
+/* colocou as estrelas por todo o site*/
+
+.ceu-estrelado {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+/*  tamanho da estrelas e coloracao e mecx*/
+.estrela {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(184, 155, 114, 0.65);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(184, 155, 114, 0.75);
+    animation: brilhoEstrela 4s infinite ease-in-out;
+}
+.estrela::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 13px;
+    height: 1px;
+    background-color: rgba(184, 155, 114, 0.45);
+    transform: translate(-50%, -50%);
+}
+
+.estrela::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 13px;
+    background-color: rgba(184, 155, 114, 0.45);
+    transform: translate(-50%, -50%);
+}
+
+@keyframes brilhoEstrela {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 0.85;
+        transform: scale(1.2);
+    }
+} 
+
+/* Botão de trocar tema */
+.botao-tema {
+    background-color: var(--cor-marrom);
+    color: var(--cor-texto-footer);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 15px;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-tema:hover {
+    background-color: var(--cor-marrom-hover);
+}
+
+.botao-tema:focus {
+    outline: 3px solid var(--cor-marrom);
+    outline-offset: 3px;
+}
+
+
+/* foco visível para acessibilidade */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--cor-marrom);
+    outline-offset: 4px;
+}
+
+/* ANIMAÇÃO DE ENTRADA DAS SEÇÕES */
+
+.animar-section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animar-section.animacao-pronta {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.animar-section.animacao-pronta.aparecer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* MENU MOBILE */
+
+.acoes-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.botao-menu {
+    display: none;
+    background-color: var(--cor-marrom);
+    color: var(--cor-texto-footer);
+    border: none;
+    padding: 9px 14px;
+    border-radius: 12px;
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.menu-mobile {
+    display: none;
+}
+
+/* ajuste mobile */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 14px 0;
+        position: relative;
+        z-index: 1000;
+    }
+
+    header .interface {
+        padding: 0 18px;
+        gap: 12px;
+    }
+
+    .logo {
+        gap: 8px;
+    }
+
+    .logo img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo a {
+    font-size: var(--fs-sm);
+        line-height: 1.1;
+    }
+
+    .menu-desktop {
+        display: none;
+    }
+
+    .acoes-header {
+        margin-left: auto;
+        gap: 8px;
+    }
+
+    .botao-tema {
+        padding: 8px 10px;
+        font-size: var(--fs-xs);
+        border-radius: 10px;
+        white-space: nowrap;
+    }
+
+    .botao-menu {
+        display: block;
+        font-size: var(--fs-lg);
+    }
+
+    .menu-mobile {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 18px;
+        right: 18px;
+        background-color: var(--cor-header);
+        border: 2px solid var(--cor-marrom);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        z-index: 9999;
+    }
+
+    .menu-mobile.ativo {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .menu-mobile a {
+        color: var(--cor-texto);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: var(--fs-base);
+        padding: 8px 0;
+    }
+
+    .menu-mobile a:hover {
+        color: var(--cor-marrom);
+    }
+
+    .txt-topo-site h1 {
+        font-size: var(--fs-xl);
+        letter-spacing: 5px;
+        line-height: 1.35;
+    }
+
+    .responsive-text {
+        font-size: var(--fs-md);
+        line-height: 1.35;
+        max-width: 320px;
+        margin: 0 auto 38px;
+    }
+
+    .btn-custom {
+        font-size: var(--fs-md);
+        padding: 11px 38px;
+    }
+
+    .topo-site {
+        min-height: 520px;
+        padding-top: 75px;
+    }
+}
+
+/* AJUSTE MOBILE - SOBRE MIM */
+@media screen and (max-width: 768px) {
+    .sobre {
+        padding: 60px 0;
+        overflow: hidden;
+    }
+
+    .sobre .titulo {
+        margin-bottom: 40px;
+    }
+
+    .sobre .titulo h2 {
+        font-size: var(--fs-xl);
+        letter-spacing: 5px;
+        text-align: center;
+    }
+
+    .sobre .flex {
+        flex-direction: column;
+        gap: 35px;
+        align-items: center;
+    }
+
+    .foto-sobre {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .foto-sobre img {
+        width: 220px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 18px;
+    }
+
+    .txt-sobre {
+        max-width: 100%;
+        padding: 0 22px;
+        text-align: center;
+    }
+
+    .txt-sobre h3 {
+        font-size: var(--fs-overlay);
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .txt-sobre p {
+        font-size: var(--fs-base);
+        line-height: 1.6;
+        text-align: left;
+        margin-bottom: 18px;
+    }
+    .habilidades h4 {
+    text-align: center;
+    font-size: var(--fs-base);
+}
+
+.habilidades ul {
+    justify-content: center;
+}
+
+    .btn-social {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .btn-social button {
+        font-size: var(--fs-sm);
+        padding: 9px 18px;
+    }
+}
+
+/* Em celular muito pequeno, tipo 360px ou menos, o título tem menos chance de quebrar feio na tela.*/
+@media screen and (max-width: 380px) {
+    .txt-topo-site h1 {
+        font-size: var(--fs-overlay);
+        letter-spacing: 3px;
+    }
+}
+
+
+/* posicao do video do coldplay */
+.video {
+    padding: 80px 4%;
+    background-color: var(--cor-fundo);
+}
+
+.video .titulo {
+    text-align: center;
+   font-size: var(--fs-xl);
+    color: var(--cor-texto);
+    margin-bottom: 25px;
+}
+
+.txt-video {
+    max-width: 720px;
+    margin: 0 auto 30px;
+    text-align: center;
+   font-size: var(--fs-md);
+    line-height: 1.6;
+    color: var(--cor-texto);
+}
+
+/* posição do vídeo do Coldplay */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 18px;
+}
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+}

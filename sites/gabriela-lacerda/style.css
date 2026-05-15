@@ -1,0 +1,508 @@
+/* cores e fontes da página */
+
+:root {
+  --bg: #0B0F14;
+  --card: #121821;
+  --text: #EAF2F8;
+  --muted: #8A97A8;
+  --accent: #00F5A0;
+  --border: rgba(255, 255, 255, .08);
+
+  --fs-sm: .9rem;
+  --fs-base: 1rem;
+  --fs-lg: 2rem;
+  --fs-xl: 5rem;
+
+  --font-main: 'Inter', sans-serif;
+  --font-title: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* tema claro */
+
+.light-theme {
+  --bg: #F4F7FA;
+  --card: #ffffff;
+  --text: #101828;
+  --muted: #667085;
+  --accent: #00B37E;
+  --border: rgba(0, 0, 0, .06);
+}
+
+/* tira os estilos padrões do navegador */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* rolagem suave */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* configurações gerais da página */
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  line-height: 1.7;
+  transition: .4s ease;
+}
+
+/* efeito de luz seguindo o mouse */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--x) var(--y),
+    rgba(0, 245, 160, .05),
+    transparent 40%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* destaque quando usa teclado */
+
+a:focus,
+button:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* limita a largura da página */
+
+.cnt {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+}
+
+/* menu do topo */
+
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  backdrop-filter: blur(20px);
+  background: rgba(11, 15, 20, .55);
+  border-bottom: 1px solid var(--border);
+  z-index: 999;
+}
+
+/* organiza os itens do menu */
+
+.nav-inner {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* links do menu */
+
+.nlinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.nlinks a {
+  text-decoration: none;
+  color: var(--muted);
+  transition: .3s;
+}
+
+/* efeito ao passar o mouse */
+
+.nlinks a:hover {
+  color: var(--text);
+}
+
+/* botão de trocar tema */
+
+#theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* seção inicial */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+}
+
+/* divide texto e imagem */
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* nome principal */
+
+.hero-name {
+  font-family: var(--font-title);
+  font-size: clamp(4rem, 10vw, 7rem);
+  line-height: .9;
+  letter-spacing: -0.08em;
+  margin-bottom: 1rem;
+}
+
+/* subtítulo */
+
+.hero-subtitle {
+  color: var(--muted);
+  font-size: var(--fs-base);
+  font-family: var(--font-mono);
+}
+
+/* etiqueta do curso */
+
+.sec-pill {
+  width: fit-content;
+  padding: .6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: .8rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+}
+
+/* imagem principal */
+
+.hero-image img {
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+}
+
+/* terminal decorativo */
+
+.terminal {
+  margin-top: 3rem;
+  background: rgba(18, 24, 33, .72);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* topo do terminal */
+
+.terminal-top {
+  display: flex;
+  gap: .5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* bolinhas coloridas */
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+/* conteúdo do terminal */
+
+.terminal-body {
+  padding: 2rem;
+  font-family: var(--font-mono);
+}
+
+/* linhas do terminal */
+
+.terminal-line {
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.terminal-line span {
+  color: var(--accent);
+}
+
+/* espaçamento das seções */
+
+.about {
+  padding: 7rem 0;
+}
+
+/* número decorativo */
+
+.sec-num {
+  font-size: 5rem;
+  opacity: .08;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* título das seções */
+
+.abt-destaque {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.abt-content {
+  max-width: 750px;
+}
+
+/* texto */
+
+.abt-p {
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+}
+
+/* grid dos cards */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* card */
+
+.flip-card {
+  height: 240px;
+  perspective: 1000px;
+}
+
+/* parte que gira */
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform .8s;
+  transform-style: preserve-3d;
+}
+
+/* gira o card */
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* frente e verso do card */
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2rem;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(18, 24, 33, .75);
+  border: 1px solid var(--border);
+}
+
+/* lado de trás */
+
+.flip-back {
+  transform: rotateY(180deg);
+  flex-direction: column;
+}
+
+.flip-back p {
+  color: var(--muted);
+}
+
+/* grid dos interesses */
+
+.interest-grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* card dos interesses */
+
+.interest-card {
+  background: rgba(18, 24, 33, .72);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  overflow: hidden;
+  transition: .4s;
+}
+
+/* animação ao passar o mouse */
+
+.interest-card:hover {
+  transform: translateY(-6px);
+}
+
+/* imagens */
+
+.interest-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.interest-info {
+  padding: 2rem;
+}
+
+.interest-info h3 {
+  font-family: var(--font-title);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.interest-info p {
+  color: var(--muted);
+}
+
+/* vídeo */
+
+.video-wrap {
+  margin-top: 3rem;
+}
+
+.video-wrap iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+  border-radius: 24px;
+}
+
+/* rodapé */
+
+footer {
+  padding: 7rem 0;
+}
+
+.contact-h {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* contatos */
+
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* cards de contato */
+
+.clink {
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: rgba(18, 24, 33, .7);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: .3s;
+}
+
+/* animação nos contatos */
+
+.clink:hover {
+  transform: translateY(-5px);
+}
+
+/* texto pequeno acima */
+
+.clink-lbl {
+  display: block;
+  color: var(--accent);
+  margin-bottom: .6rem;
+  font-size: .75rem;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+
+/* animação de entrada */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+/* elemento aparecendo */
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ajustes para tablet */
+
+@media (max-width: 900px) {
+
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .interest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image img {
+    height: 420px;
+  }
+}
+
+/* ajustes para celular */
+
+@media (max-width: 768px) {
+
+  .hero-name {
+    font-size: 4rem;
+  }
+
+  .nlinks {
+    display: none;
+  }
+
+  .abt-destaque,
+  .contact-h {
+    font-size: 2.2rem;
+  }
+
+  .sec-num {
+    font-size: 3rem;
+  }
+}
