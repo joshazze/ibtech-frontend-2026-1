@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cartão de visita pessoal de Cauã Moraes - Engenharia de Software e Cloud.">
+  
+  <meta property="og:title" content="Cauã Moraes — Cloud & Servidores">
+  <meta property="og:description" content="Automação, Cloud e IA. Veja meu portfólio.">
+  <meta property="og:image" content="assets/og-image.png">
+  
+  <title>Cauã Moraes — Cloud & Servidores</title>
+  <link rel="icon" href="assets/favicon.png">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+</head>
+<body>
+
+  <!-- Header Semântico (Navbar) -->
+  <header>
+    <div class="container">
+      <nav>
+        <span class="logo">CM.</span>
+        
+        <div class="nav-content">
+          <ul class="nav-links" id="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#educacao">Educação</a></li>
+            <li><a href="#experiencia">Experiências</a></li>
+            <li><a href="#midia">Galeria</a></li>
+          </ul>
+          
+          <button id="theme-toggle" class="btn-icon" aria-label="Alternar tema claro/escuro">🌓</button>
+          <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero fade-section" id="inicio">
+      <img src="assets/foto-perfil.jpeg" alt="Foto de Perfil de Cauã Moraes" id="avatar-trigger" class="hero-img" title="Rush B...">
+      <h1 class="hero-title">Cauã Moraes</h1>
+      <p class="hero-subtitle">Cloud & Servidores</p>
+      <p class="hero-contact">Belo Horizonte-MG | (31) 98733-7301</p>
+    </section>
+
+    <!-- ELEMENTO CRIATIVO AUTORAL: C4 CS CSS ART -->
+    <div id="c4-overlay">
+      <div class="c4-bomb">
+        <div class="c4-blocks">
+          <div class="c4-block"></div><div class="c4-block"></div>
+          <div class="c4-block"></div><div class="c4-block"></div>
+        </div>
+        
+        <div class="c4-board-top">
+          <div class="c4-screen">
+            <div id="c4-timer">10.00</div>
+          </div>
+        </div>
+        
+        <div class="c4-board-bottom">
+          <div class="c4-keypad">
+            <div class="c4-key">1</div><div class="c4-key">2</div><div class="c4-key">3</div>
+            <div class="c4-key">4</div><div class="c4-key">5</div><div class="c4-key">6</div>
+            <div class="c4-key">7</div><div class="c4-key">8</div><div class="c4-key">9</div>
+            <!-- Correção Semântica: Remoção do CSS Inline -->
+            <div class="c4-key c4-key-star">*</div><div class="c4-key">0</div><div class="c4-key c4-key-hash">#</div>
+          </div>
+        </div>
+        
+        <div class="c4-tape c4-tape-top"></div>
+        <div class="c4-tape c4-tape-bottom"></div>
+        
+        <div class="c4-led-assembly">
+          <div class="c4-led" id="c4-led-light"></div>
+        </div>
+        
+        <svg class="c4-wires" viewBox="0 0 280 380" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 50 Q 20 20 -10 60" fill="none" stroke="#D93636" stroke-width="4" />
+          <path d="M 90 100 Q 50 150 70 240" fill="none" stroke="#D93636" stroke-width="3" />
+          <path d="M 230 40 Q 280 150 200 250" fill="none" stroke="#E5C532" stroke-width="3" />
+          <path d="M 220 80 Q 260 100 280 80" fill="none" stroke="#2B2B2B" stroke-width="3" />
+        </svg>
+        
+        <input type="text" id="c4-input" placeholder="" maxlength="7" autocomplete="off" readonly>
+      </div>
+      
+      <p id="c4-status">Bomb has been planted.</p>
+    </div>
+
+    <!-- Sobre Mim -->
+    <section id="sobre" class="fade-section">
+      <h2 class="section-title">Sobre mim</h2>
+      <div class="card">
+        <p style="margin-bottom: 1rem;">Atualmente sou estagiário na área de Cloud e Servidores, com foco em automações e infraestrutura como código utilizando Terraform, Azure DevOps, Python e outras ferramentas do dia a dia. Participo da criação de pipelines CI/CD e de soluções que otimizam processos internos na Cloud e Servidores.</p>
+        <p style="margin-bottom: 1rem;">Tenho interesse em Inteligência Artificial principalmente pela possibilidade de automatizar tarefas repetitivas, ganhar tempo e melhorar a organização das atividades. Ainda estou aprendendo os fundamentos, mas já venho explorando formas simples de aplicar IA no meu fluxo de trabalho. Minha experiência anterior com marketing me dá um diferencial: consigo traduzir termos técnicos para uma linguagem acessível, facilitando a comunicação com pessoas que não são da área de tecnologia.</p>
+        <p>Estou em formação constante, buscando evoluir como profissional de tecnologia com foco em Cloud e, no futuro, integrar soluções de IA de forma mais aprofundada.</p>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="fade-section">
+      <h2 class="section-title">Habilidades</h2>
+      <!-- Correção Semântica: Trocado de div/span para ul/li -->
+      <ul class="skills-list">
+        <li class="skill-tag">Automação (IA/Zapier)</li>
+        <li class="skill-tag">Prompt Engineering</li>
+        <li class="skill-tag">Cloud (Azure/AWS)</li>
+        <li class="skill-tag">Terraform & Ansible</li>
+        <li class="skill-tag">Python & SQL</li>
+        <li class="skill-tag">HTML / CSS / JS</li>
+        <li class="skill-tag">Tradução Técnica</li>
+      </ul>
+    </section>
+
+    <!-- Educação -->
+    <section id="educacao" class="fade-section">
+      <h2 class="section-title">Educação</h2>
+      <article class="card">
+        <h3 class="card-title">Bacharelado em Engenharia de Software</h3>
+        <p class="card-meta">Faculdade IBMEC | Jul/2025 — Jun/2029</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Bacharelado em Engenharia de Software</h3>
+        <p class="card-meta">Faculdade Estácio | Fev/2025 — Jun/2025</p>
+      </article>
+      <article class="card">
+        <h3 class="card-title">Tecnólogo em Marketing</h3>
+        <p class="card-meta">Faculdade Estácio | Jul/2024 — Fev/2025</p>
+      </article>
+    </section>
+
+    <!-- Experiência -->
+    <section id="experiencia" class="fade-section">
+      <h2 class="section-title">Experiências</h2>
+      
+      <article class="card">
+        <h3 class="card-title">Estagiário em Área de Servidores e Cloud — ArcelorMittal Sistemas</h3>
+        <p class="card-meta">Abr/2025 — Presente</p>
+        <ul class="card-list">
+          <li>Automação de processos em Nuvem e provisionamento de servidores com código (IAC).</li>
+          <li>Criação de Módulos em Terraform para Azure e uso intenso de Azure DevOps.</li>
+          <li>Criação de scripts operacionais em Python.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Engenheiro de Software (Membro) — IbTech</h3>
+        <p class="card-meta">Ago/2025 — Presente</p>
+        <ul class="card-list">
+          <li>Membro atuante na Trilha Frontend, desenvolvendo portfólio com HTML, CSS e JS puros.</li>
+          <li>Implementação de lógica de estado, responsividade e manipulação do DOM.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Assistente de Marketing — Dadosfera</h3>
+        <p class="card-meta">Abr/2024 — Mar/2025</p>
+        <ul class="card-list">
+          <li>Desenvolvimento de landing pages no HubSpot, incluindo copywriting e testes A/B.</li>
+          <li>Implementação de automações via IA e Zapier para otimização de processos.</li>
+          <li>Gestão e organização de demandas e projetos no Jira.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Assistente de Suporte de TI — Dadosfera</h3>
+        <p class="card-meta">Ago/2023 — Abr/2024</p>
+        <ul class="card-list">
+          <li>Gerenciamento de acessos no Google Workspace, Jira, HubSpot, Bitwarden e AWS.</li>
+          <li>Migração completa de conta corporativa utilizando épicos e cards no Jira.</li>
+        </ul>
+      </article>
+      
+      <article class="card">
+        <h3 class="card-title">Assistente Administrativo — Dadosfera</h3>
+        <p class="card-meta">Jan/2022 — Ago/2023</p>
+        <ul class="card-list">
+          <li>Logística do patrimônio da empresa e orçamento para requisição de compras de itens de TI.</li>
+          <li>Gestão de viagens corporativas e gerenciamento de permissões no Google Drive.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Mídia -->
+    <section id="midia" class="fade-section">
+      <h2 class="section-title">Galeria</h2>
+      <p class="footer-text">Um pouco do meu ambiente de trabalho e referências visuais.</p>
+      
+      <div class="media-grid">
+        <img src="assets/ibmec.jpg" alt="foto do predio da faculdade ibmec de belo horizonte" class="media-item" width="400" height="225" loading="lazy">
+        <img src="assets/belo-horizonte.jpg" alt="imagem da praca raul soares em belo horizonte vista de cima" class="media-item" width="400" height="225" loading="lazy">
+        <img src="assets/portaria-arcelormittal.jpg" alt="imagem da portaria do escritorio central da arcelormittal " class="media-item" width="400" height="225" loading="lazy">
+        <iframe src="https://www.youtube.com/embed/QUYvH4_7Dlo" title="video de resolucao do livro de geometria analitica do steinbruch" class="media-item" width="400" height="225" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <h2 class="card-title">Contato</h2>
+      <p class="footer-text">Vamos conversar sobre Infraestrutura, Automação ou IA.</p>
+      
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/caua-moraes/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/cpzmoraes" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+
+      <div>
+        <button id="btn-copy" class="btn" type="button">Copiar E-mail</button>
+        <span id="copy-feedback" class="copy-feedback">Copiado!</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

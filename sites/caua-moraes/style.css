@@ -1,0 +1,294 @@
+/* 1. Reset Básico */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Variáveis - Estilo Apple */
+:root {
+  --bg-color: #f5f5f7;
+  --surface-color: #ffffff;
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+  --primary-color: #0066cc;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --nav-bg: rgba(255, 255, 255, 0.7);
+  --shadow-soft: 0 4px 24px rgba(0,0,0,0.06);
+
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --fs-sm: 0.85rem;
+  --fs-base: 1.05rem;
+  --fs-lg: 1.3rem;
+  --fs-xl: 3rem;
+
+  --spacing-sm: 0.8rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 5rem;
+}
+
+[data-theme="dark"] {
+  --bg-color: #000000;
+  --surface-color: #1c1c1e;
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --primary-color: #2997ff;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(0, 0, 0, 0.7);
+  --shadow-soft: 0 4px 24px rgba(255,255,255,0.02);
+}
+
+/* 3. Estilos Base */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  line-height: 1.5;
+  font-size: var(--fs-base);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* 4. Nav Header */
+header {
+  position: sticky;
+  top: 0;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100;
+  padding: 1rem 0;
+  margin-bottom: var(--spacing-xl);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo { font-weight: 700; font-size: var(--fs-lg); letter-spacing: -0.5px; }
+
+.nav-content { display: flex; align-items: center; gap: var(--spacing-md); }
+.nav-links { display: flex; gap: var(--spacing-md); list-style: none; }
+.nav-links a {
+  color: var(--text-primary); text-decoration: none; font-size: 0.95rem;
+  font-weight: 500; transition: color 0.3s ease;
+}
+.nav-links a:hover { color: var(--primary-color); }
+
+.hamburger {
+  display: none; background: none; border: none; font-size: 1.5rem;
+  color: var(--text-primary); cursor: pointer; padding: 5px;
+}
+
+/* 5. Seções e Componentes */
+section { margin-bottom: var(--spacing-xl); scroll-margin-top: 100px; }
+.section-title { font-size: 2rem; font-weight: 600; letter-spacing: -0.5px; margin-bottom: var(--spacing-lg); text-align: center; }
+
+.hero { text-align: center; padding: var(--spacing-lg) 0; }
+.hero-img {
+  width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
+  margin-bottom: var(--spacing-md); box-shadow: var(--shadow-soft);
+  cursor: crosshair; transition: transform 0.3s ease;
+}
+.hero-img:hover { transform: scale(1.05); }
+.hero-title { font-size: var(--fs-xl); font-weight: 700; letter-spacing: -1px; margin-bottom: 0.5rem; }
+.hero-subtitle { font-size: var(--fs-lg); color: var(--primary-color); font-weight: 500; margin-bottom: 1rem; }
+.hero-contact { color: var(--text-secondary); }
+
+.card {
+  background: var(--surface-color); border-radius: 18px;
+  padding: var(--spacing-md) var(--spacing-lg); margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-soft); border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-2px); }
+.card-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.2rem; }
+.card-meta { font-size: var(--fs-sm); color: var(--text-secondary); margin-bottom: var(--spacing-sm); font-weight: 500; }
+.card-list { margin-left: var(--spacing-md); color: var(--text-secondary); }
+.card-list li { margin-bottom: 0.5rem; }
+
+/* Habilidades Semânticas */
+.skills-list { 
+  list-style: none; display: flex; flex-wrap: wrap; 
+  gap: 10px; justify-content: center; padding: 0;
+}
+.skill-tag {
+  background: var(--surface-color); color: var(--text-primary); padding: 10px 20px;
+  border-radius: 30px; font-size: var(--fs-sm); font-weight: 500;
+  box-shadow: var(--shadow-soft); border: 1px solid var(--border-color); transition: all 0.3s ease;
+}
+.skill-tag:hover { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+
+.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); }
+.media-item {
+  width: 100%; height: 100%; aspect-ratio: 16/9; object-fit: cover;
+  border-radius: 14px; box-shadow: var(--shadow-soft); border: 1px solid var(--border-color);
+}
+
+a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+a:hover { text-decoration: underline; }
+.btn {
+  background-color: var(--primary-color); color: #fff; border: none;
+  padding: 12px 24px; border-radius: 24px; cursor: pointer; font-size: var(--fs-base);
+  font-weight: 600; transition: opacity 0.3s ease, transform 0.2s ease;
+}
+.btn:hover { opacity: 0.9; transform: scale(1.02); }
+.btn-icon {
+  background: var(--surface-color); border: 1px solid var(--border-color);
+  color: var(--text-primary); font-size: 1.2rem; border-radius: 50%;
+  width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; box-shadow: var(--shadow-soft); transition: background 0.3s ease;
+}
+
+footer { text-align: center; padding: var(--spacing-lg) 0; border-top: 1px solid var(--border-color); }
+.footer-text { color: var(--text-secondary); margin-bottom: var(--spacing-md); }
+.footer-links { display: flex; justify-content: center; gap: var(--spacing-md); margin-bottom: var(--spacing-md); }
+.copy-feedback { display: none; color: #34c759; margin-left: 10px; font-weight: 600; font-size: var(--fs-sm); }
+
+.fade-section {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fade-section.visible { opacity: 1; transform: translateY(0); }
+
+/* =========================================
+    6. ESTILIZAÇÃO DA C4 (Baseada na Arte)
+    ========================================= */
+#c4-overlay {
+  display: none;
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.95); z-index: 9999;
+  justify-content: center; align-items: center; flex-direction: column;
+  font-family: "Courier New", Courier, monospace;
+  perspective: 1000px;
+}
+
+.c4-bomb { position: relative; width: 280px; height: 380px; }
+
+.c4-blocks {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; gap: 4px; border-radius: 8px; overflow: hidden;
+  background: #8e755d; padding: 4px;
+}
+.c4-block {
+  flex: 1; background: #B59E83; border-radius: 4px;
+  box-shadow: inset -2px -2px 10px rgba(0,0,0,0.2), inset 2px 2px 5px rgba(255,255,255,0.1);
+}
+
+.c4-tape {
+  position: absolute; left: -10px; width: calc(100% + 20px);
+  height: 50px; background: #e5e5e5;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3), inset 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+.c4-tape-top { top: 120px; transform: rotate(-2deg); }
+.c4-tape-bottom { bottom: 40px; transform: rotate(1deg); }
+
+.c4-led-assembly {
+  position: absolute; left: -25px; top: 50px; width: 30px; height: 70px;
+  background: #7a7a7a; border-radius: 4px 0 0 4px; z-index: 3;
+  box-shadow: -2px 2px 5px rgba(0,0,0,0.5);
+  display: flex; flex-direction: column; align-items: center; padding-top: 10px;
+}
+.c4-led {
+  width: 15px; height: 25px; background: #4a0000; border-radius: 2px;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+.c4-led.active {
+  background: #ff2222; box-shadow: 0 0 15px #ff2222, inset 0 0 5px #fff;
+}
+
+.c4-board-top {
+  position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+  width: 220px; height: 80px; background: #5B8A5A; border-radius: 4px;
+  border: 2px solid #426b41; box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 3;
+  display: flex; justify-content: center; align-items: center;
+}
+.c4-board-top::before {
+  content: ''; position: absolute; bottom: 4px; right: 10px; width: 40px; height: 6px;
+  background: radial-gradient(circle, #e5c532 40%, transparent 40%) 0 0 / 10px 10px;
+}
+
+.c4-screen {
+  width: 180px; height: 50px; background: #3B3E2C; border: 3px inset #222;
+  border-radius: 2px; display: flex; justify-content: center; align-items: center;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+}
+#c4-timer {
+  color: #92b02e; font-size: 2.5rem; font-weight: bold; font-family: "Courier New", Courier, monospace;
+  text-shadow: 0 0 5px rgba(146, 176, 46, 0.5); letter-spacing: 2px;
+}
+
+.c4-board-bottom {
+  position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%);
+  width: 150px; height: 180px; background: #5B8A5A; border-radius: 4px;
+  border: 2px solid #426b41; box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 3;
+  padding: 15px 10px;
+}
+.c4-board-bottom::before {
+  content: ''; position: absolute; top: 5px; right: 10px; width: 40px; height: 10px;
+  background: radial-gradient(circle, #fff 40%, transparent 40%) 0 0 / 12px 12px;
+}
+
+.c4-keypad {
+  width: 100%; height: 100%; background: #a5a5a5; border-radius: 4px;
+  border: 2px inset #777; padding: 5px; display: grid;
+  grid-template-columns: repeat(3, 1fr); grid-gap: 5px;
+}
+
+.c4-key {
+  background: #e5e5e5; border: 1px solid #888; border-bottom: 3px solid #888;
+  border-radius: 2px; display: flex; justify-content: center; align-items: center;
+  font-weight: bold; font-size: 1.2rem; color: #333; cursor: pointer;
+  user-select: none; transition: background 0.1s;
+}
+.c4-key:active { background: #ccc; border-bottom: 1px solid #888; transform: translateY(2px); }
+
+/* Correção do Estilo Inline: Classes separadas para os caracteres especiais */
+.c4-key-star { font-size: 1.5rem; }
+.c4-key-hash { font-size: 1.2rem; }
+
+.c4-wires {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 4;
+}
+
+#c4-input {
+  position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%);
+  width: 200px; background: transparent; border: none; color: #fff; text-align: center;
+  font-size: 1.2rem; outline: none; letter-spacing: 5px;
+}
+#c4-status {
+  color: #888; margin-top: 30px; font-size: 0.9rem; text-transform: uppercase;
+  letter-spacing: 2px; font-weight: bold;
+}
+
+.flashbang { background: #ffffff !important; transition: background 0.1s; }
+
+/* Media Queries */
+@media (max-width: 768px) {
+  :root { --fs-xl: 2.2rem; --fs-lg: 1.1rem; --spacing-xl: 3rem; }
+  .card { padding: var(--spacing-md); }
+  .hamburger { display: block; }
+  .nav-links {
+    position: absolute; top: 120%; left: 0; right: 0; background: var(--nav-bg);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    flex-direction: column; align-items: center; padding: var(--spacing-md) 0;
+    border-radius: 14px; box-shadow: var(--shadow-soft); border: 1px solid var(--border-color); display: none;
+  }
+  .nav-links.active { display: flex; }
+  .c4-bomb { transform: scale(0.85); }
+}
