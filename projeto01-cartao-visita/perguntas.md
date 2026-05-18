@@ -26,6 +26,26 @@ pergunta isolada não reprova; travar em todas, sim. A pergunta de "mudança ao 
 
 ---
 
+## André Coelho
+
+1. O seu projeto não tem um arquivo `script.js`. A diretriz pede três comportamentos obrigatórios em JavaScript — quais são esses três, e o que cada um faz na página?
+2. No seu CSS as cores estão escritas direto em cada regra (`#111111`, `#1f1f1f`, `#333`...). Se eu pedir para deixar o fundo da página um pouco mais claro, quantos lugares você precisa mexer hoje? Como um `:root` com variáveis mudaria isso?
+3. Os seus links de LinkedIn e GitHub usam `target="_blank"` mas sem `rel="noopener noreferrer"`. O que esse atributo evita? O que pode acontecer sem ele?
+4. **Mudança ao vivo:** sua grade de três fotos (`.imagens-grid`) usa `grid-template-columns: repeat(3, 1fr)`. Adicione uma media query que faça as fotos ficarem uma embaixo da outra num celular.
+5. Explique a diferença entre as tags `<header>`, `<main>` e `<section>` que você usou. Por que usar essas tags em vez de `<div>` para tudo?
+
+---
+
+## Atos Barros
+
+1. O seu flip card vira com clique e também com o teclado (`Enter`/`Espaço`). Abra o `script.js` e mostre o trecho que trata o teclado — por que você precisou do `event.preventDefault()` ali?
+2. O seu `script.js` tem **dois** `IntersectionObserver` diferentes: um marca o link de navegação ativo, o outro revela os elementos com fade. Qual a diferença no que cada um observa e faz?
+3. A diretriz pede um botão de "copiar e-mail" com a Clipboard API — hoje a sua página tem só links `mailto:`. Qual a diferença, na prática, entre o que o `mailto:` faz e o que a diretriz pede?
+4. **Mudança ao vivo:** no fim do seu CSS, dentro do `@media (max-width: 520px)`, há uma regra `.button, { width: 100%; }` que está quebrada. Conserte-a e explique por que ela não estava funcionando.
+5. No seu `setTheme()` você alterna a classe `light-theme`. Como o seu código descobre a preferência de tema do sistema operacional do usuário na primeira visita?
+
+---
+
 ## Augusto Gaipo
 
 1. O seu projeto inteiro está num único `index.html` — o CSS dentro de um `<style>` e o JS dentro de um `<script>`. A diretriz pede `style.css` e `script.js` separados. O que muda, na prática, separar os arquivos? Por que a diretriz exige isso?
@@ -43,6 +63,26 @@ pergunta isolada não reprova; travar em todas, sim. A pergunta de "mudança ao 
 3. Na linha 44 do HTML a foto do hero usa `src="/Imagens/..."` e na linha 89 a galeria usa `src="Imagens/..."` — sem a barra. Uma carrega e a outra não. Qual quebra e por quê?
 4. **Mudança ao vivo:** faça o tema escolhido pelo usuário continuar aplicado depois que a página for recarregada.
 5. O seu CSS tem a classe `.video-frame` estilizada, mas não há vídeo no HTML. Por que a diretriz torna o vídeo obrigatório, e onde na página você o colocaria?
+
+---
+
+## Cauã Moraes
+
+1. O seu easter egg da C4 é ativado clicando 5 vezes na foto de perfil. Abra o `script.js` e explique como o código conta esses cliques — e o que o `setTimeout` de 3 segundos faz no meio dessa contagem.
+2. No seu copiar e-mail você cria um `<input>` temporário e chama `document.execCommand("copy")`. Existe uma forma mais moderna de fazer a mesma coisa. Qual é, e por que a diretriz a prefere?
+3. O seu CSS tem só uma media query (`max-width: 768px`). A diretriz pede pelo menos duas. Que problema um único breakpoint pode causar entre um tablet e um celular de 360px de largura?
+4. **Mudança ao vivo:** você declarou `--fs-sm`, `--fs-base`, `--fs-lg` e `--fs-xl`, mas o `.section-title` está com `font-size: 2rem` chumbado. Crie uma variável para esse tamanho e use-a.
+5. No seu menu mobile você fecha o menu ao clicar fora dele e ao apertar `Esc`. Mostre os dois trechos no `script.js`. Como o código sabe que o clique foi "fora" do menu?
+
+---
+
+## Felipe Medeiros
+
+1. O seu botão de tema salva a escolha em `localStorage` quando é clicado. Mas se o usuário escolhe o tema claro e recarrega a página, ela volta para o escuro. Por que isso acontece? O que falta no seu código?
+2. No seu `:root` existe uma única variável de tamanho de fonte, `--fs-xl`. A diretriz pede pelo menos quatro. O que é uma "escala tipográfica" e qual a vantagem de declará-la em variáveis?
+3. O seu `IntersectionObserver` chama `obs.unobserve(e.target)` quando a seção aparece. O que essa linha faz? O que mudaria na animação se você a removesse?
+4. **Mudança ao vivo:** o seu copiar e-mail usa o endereço `felipe.medeiros@exemplo.com`, que é um placeholder. Troque pelo seu e-mail real e me diga em que linha do código esse valor está definido.
+5. O seu efeito typewriter é disparado por `window.onload = type`. Explique como a função `type` consegue mostrar uma letra de cada vez — para que serve o `setTimeout` dentro dela?
 
 ---
 
@@ -113,6 +153,16 @@ pergunta isolada não reprova; travar em todas, sim. A pergunta de "mudança ao 
 3. As suas imagens hoje vêm de uma URL do LinkedIn. Por que isso é um problema? O que tende a acontecer com a página daqui a alguns meses?
 4. O seu dark mode funciona, mas esquece a escolha quando a página recarrega. O que é o `localStorage` e em que ponto do seu código ele entraria?
 5. Você declarou `:focus-visible` no CSS mas sem nenhum estilo visível. Quem é prejudicado por isso e por quê?
+
+---
+
+## Vitor Batista
+
+1. A sua página é construída inteira com `<div>` e `<span>` — não há `<header>`, `<main>`, `<section>` nem `<h1>`. Para quem usa leitor de tela, o que muda entre uma `<div>` e uma `<section>` com um `<h2>`?
+2. O seu `script.js` controla o `z-index` de cada página manualmente durante a virada. Explique por que isso é necessário — o que apareceria errado sem esse controle?
+3. A sua trava `animating` impede novas ações enquanto uma página está virando. Mostre onde ela é ativada e onde é desativada. O que aconteceria se o usuário clicasse rápido várias vezes sem ela?
+4. **Mudança ao vivo:** seus tamanhos de fonte estão todos chumbados (`0.92rem`, `1.6rem`, `0.65rem`...). Crie uma variável `--fs-base` no `:root` e aplique-a no `.body-text`.
+5. A diretriz pede um "copiar e-mail" com a Clipboard API — hoje a sua página de Contato tem só um link `mailto:`. Como você transformaria esse link num botão que copia o endereço para a área de transferência?
 
 ---
 *Perguntas preparadas por Josh — Diretoria Técnica IbTech 2026.1*
