@@ -26,6 +26,16 @@ pergunta isolada não reprova; travar em todas, sim. A pergunta de "mudança ao 
 
 ---
 
+## Augusto Gaipo
+
+1. O seu projeto inteiro está num único `index.html` — o CSS dentro de um `<style>` e o JS dentro de um `<script>`. A diretriz pede `style.css` e `script.js` separados. O que muda, na prática, separar os arquivos? Por que a diretriz exige isso?
+2. As suas seções de conteúdo ("Sobre mim", "Objetivos"...) são `<div class="section">`. Qual tag semântica a diretriz espera no lugar dessas `div`? O que muda para quem usa leitor de tela?
+3. As fotos da galeria têm `alt="Foto 1"`, `alt="Foto 2"`, `alt="Foto 3"`. Por que a diretriz considera isso um `alt` ruim? Reescreva o `alt` da `foto1.jpg` do jeito certo.
+4. **Mudança ao vivo:** hoje, na primeira visita, o site sempre abre no tema escuro (`localStorage.getItem('theme') || 'dark'`). Faça ele respeitar a preferência do sistema operacional do usuário nessa primeira visita.
+5. Você não declarou nenhuma variável CSS de tamanho de fonte — os tamanhos estão escritos direto em cada regra (`1.6rem`, `.97rem`, `.88rem`...). Qual a vantagem de declarar uma escala tipográfica no `:root`? Quantos lugares você mexeria hoje para aumentar todos os textos em 10%?
+
+---
+
 ## Bernardo Alvim
 
 1. Explique como o seu "radar de foco" funciona: passo a passo, o que acontece no JavaScript quando o usuário clica num dos chips (Front-end, Automação...)?
@@ -43,6 +53,16 @@ pergunta isolada não reprova; travar em todas, sim. A pergunta de "mudança ao 
 3. No celular, o seu menu (`.nlinks`) recebe `display: none`. O que o usuário de celular perde com isso? Como você resolveria sem simplesmente esconder?
 4. **Mudança ao vivo:** o botão de tema mostra sempre 🌓. Faça o ícone alternar entre ☀️ e 🌙 conforme o tema ativo.
 5. Seus flip cards giram com `transform: rotateY(180deg)` e usam `backface-visibility: hidden`. Qual o papel do `backface-visibility`? O que apareceria na tela sem ele?
+
+---
+
+## João Victor Cândido
+
+1. No seu `script.js`, a função `temaInicial()` decide qual tema mostrar. Explique o que acontece na primeiríssima visita de alguém que nunca abriu a página — qual linha roda e como ela escolhe entre claro e escuro?
+2. Você declarou 4 variáveis de tamanho de fonte no `:root` (`--tamanho-pequeno`, `--tamanho-normal`, `--tamanho-medio`, `--tamanho-grande`). Abra o CSS e me mostre onde cada uma é usada. Duas delas não aparecem em lugar nenhum — quais são, e em que elementos deveriam estar?
+3. **Mudança ao vivo:** no mobile o seu `h1` está com `font-size: 2rem` chumbado. Troque esse valor por uma variável CSS, sem mudar o tamanho que aparece na tela.
+4. O seu `IntersectionObserver` chama `observador.unobserve(entrada.target)` quando a seção aparece. O que essa linha faz? O que aconteceria com a animação se você a removesse?
+5. O parágrafo de apresentação tem o texto escrito tanto no HTML quanto no atributo `data-texto`, e o JS adiciona a classe `js-enabled` ao `body`. Por que você duplicou o texto? O que o usuário veria se o JavaScript não carregasse?
 
 ---
 
