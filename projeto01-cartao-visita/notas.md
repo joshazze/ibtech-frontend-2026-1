@@ -1,7 +1,7 @@
 # Notas — Projeto 01 Cartão de Visita
 
 **Turma:** IbTech Frontend 2026.1
-**Atualizado em:** 2026-05-18
+**Atualizado em:** 2026-05-19
 
 > A **nota fria** mede o percentual do que a diretriz exige que o aluno efetivamente
 > cumpriu. Ela é **independente do veredito** aprovado/reentrega: o veredito segue a
@@ -31,17 +31,19 @@ A nota fria é a soma dos pesos dividida por 14, em percentual.
 |---|:---:|:---:|:---:|
 | Laura Marcolino | **96%** | 9,6 | Aprovado |
 | João Victor Cândido | **95%** | 9,5 | Reentrega |
+| Maria Clara Guimarães (v2) | **95%** | 9,5 | Reentrega |
 | Cauã Moraes | **94%** | 9,4 | Reentrega |
+| Gabriel Scarpat | **93%** | 9,3 | Reentrega |
 | Atos Barros | **92%** | 9,2 | Reentrega |
-| Maria Clara Guimarães | **92%** | 9,2 | Reentrega |
 | Gabriela Lacerda | **91%** | 9,1 | Reentrega |
+| Ana Júlia Rossi (v3) | **88%** | 8,8 | Reentrega |
 | Augusto Gaipo | **72%** | 7,2 | Reentrega |
 | Felipe Medeiros | **71%** | 7,1 | Reentrega |
 | Bernardo Alvim | **69%** | 6,9 | Reentrega |
 | Pedro Moreira | **64%** | 6,4 | Reentrega |
 | Vitor Batista | **50%** | 5,0 | Reentrega |
 | Manuella Pinheiro | **35%** | 3,5 | Reentrega |
-| Ana Júlia Rossi (v2) | **32%** | 3,2 | Reentrega |
+| Henrique Bomfim | **33%** | 3,3 | Reentrega |
 | André Coelho | **29%** | 2,9 | Reentrega |
 | Luiza Paviotti | **24%** | 2,4 | Reentrega |
 
@@ -53,26 +55,27 @@ Médias e gargalos do grupo na seção *Leitura do grupo*, no fim do arquivo.
 
 Colunas: **Ana** (Ana Júlia), **And** (André), **Ato** (Atos), **Aug** (Augusto),
 **Ber** (Bernardo), **Cau** (Cauã), **Fel** (Felipe), **Gab** (Gabriela),
-**Joa** (João Victor), **Lau** (Laura), **Lui** (Luiza), **Man** (Manuella),
-**MaC** (Maria Clara), **Ped** (Pedro), **Vit** (Vitor).
+**Hen** (Henrique), **Joa** (João Victor), **Lau** (Laura), **Lui** (Luiza),
+**Man** (Manuella), **MaC** (Maria Clara), **Ped** (Pedro), **Sca** (Gabriel
+Scarpat), **Vit** (Vitor).
 
-| Critério (seção 7) | Ana | And | Ato | Aug | Ber | Cau | Fel | Gab | Joa | Lau | Lui | Man | MaC | Ped | Vit |
-|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| HTML semântico | ~ | ~ | ✓ | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ~ | ✓ | ~ | ✓ | ✗ |
-| Acessibilidade básica | ~ | ✗ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ~ | ✗ | ✗ | ✓ | ✗ | ~ |
-| Mídia (fotos + vídeo) | ✗ | ~ | ✓ | ~ | ~ | ✓ | ~ | ✓ | ✓ | ✓ | ✗ | ✗ | ~ | ~ | ✗ |
-| Variáveis e organização CSS | ✗ | ✗ | ✓ | ~ | ~ | ✓ | ~ | ✓ | ~ | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ |
-| Sistema tipográfico | ✗ | ✗ | ✓ | ✗ | ✗ | ✓ | ✗ | ✗ | ~ | ✓ | ✗ | ✗ | ✓ | ✗ | ✗ |
-| Layout moderno | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ |
-| Responsividade | ✗ | ✗ | ✓ | ~ | ✓ | ~ | ~ | ✓ | ✓ | ✓ | ✗ | ~ | ✓ | ✗ | ~ |
-| Tema claro/escuro | ~ | ✗ | ✓ | ~ | ~ | ✓ | ~ | ✓ | ✓ | ✓ | ✗ | ~ | ✓ | ~ | ✗ |
-| Copiar e-mail | ✗ | ✗ | ✗ | ✓ | ~ | ~ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | ✓ | ✓ | ✗ |
-| Animação de entrada | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | ✓ | ✓ | ✗ |
-| JS extra à escolha | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ |
-| Design e identidade | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Criatividade e empenho | ~ | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ~ | ~ | ✓ | ✓ | ✓ |
-| README e repositório | ~ | ~ | ✓ | ~ | ~ | ✓ | ✗ | ✓ | ✓ | ✓ | ~ | ✗ | ✓ | ~ | ✓ |
-| **Nota fria** | **32%** | **29%** | **92%** | **72%** | **69%** | **94%** | **71%** | **91%** | **95%** | **96%** | **24%** | **35%** | **92%** | **64%** | **50%** |
+| Critério (seção 7) | Ana | And | Ato | Aug | Ber | Cau | Fel | Gab | Hen | Joa | Lau | Lui | Man | MaC | Ped | Sca | Vit |
+|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| HTML semântico | ~ | ~ | ✓ | ~ | ✓ | ✓ | ✓ | ✓ | ~ | ✓ | ✓ | ~ | ✓ | ~ | ✓ | ✓ | ✗ |
+| Acessibilidade básica | ✓ | ✗ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ~ | ✓ | ~ | ✗ | ✗ | ✓ | ✗ | ~ | ~ |
+| Mídia (fotos + vídeo) | ~ | ~ | ✓ | ~ | ~ | ✓ | ~ | ✓ | ✗ | ✓ | ✓ | ✗ | ✗ | ✓ | ~ | ✓ | ✗ |
+| Variáveis e organização CSS | ✓ | ✗ | ✓ | ~ | ~ | ✓ | ~ | ✓ | ✓ | ~ | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ |
+| Sistema tipográfico | ✓ | ✗ | ✓ | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ~ | ✓ | ✗ | ✗ | ✓ | ✗ | ✓ | ✗ |
+| Layout moderno | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Responsividade | ~ | ✗ | ✓ | ~ | ✓ | ~ | ~ | ✓ | ✗ | ✓ | ✓ | ✗ | ~ | ✓ | ✗ | ~ | ~ |
+| Tema claro/escuro | ✓ | ✗ | ✓ | ~ | ~ | ✓ | ~ | ✓ | ✗ | ✓ | ✓ | ✗ | ~ | ✓ | ~ | ~ | ✗ |
+| Copiar e-mail | ✓ | ✗ | ✗ | ✓ | ~ | ~ | ✓ | ✓ | ✗ | ✓ | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✗ |
+| Animação de entrada | ✓ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✗ |
+| JS extra à escolha | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ |
+| Design e identidade | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Criatividade e empenho | ✓ | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ~ | ✓ | ✓ | ~ | ~ | ✓ | ✓ | ✓ | ✓ |
+| README e repositório | ~ | ~ | ✓ | ~ | ~ | ✓ | ✗ | ✓ | ~ | ✓ | ✓ | ~ | ✗ | ✓ | ~ | ✓ | ✓ |
+| **Nota fria** | **88%** | **29%** | **92%** | **72%** | **69%** | **94%** | **71%** | **91%** | **33%** | **95%** | **96%** | **24%** | **35%** | **95%** | **64%** | **93%** | **50%** |
 
 ---
 
@@ -100,6 +103,14 @@ organizadas com os 4 tamanhos de fonte usados, tema completo e um easter egg aut
 com **apenas 1 breakpoint** — a diretriz pede no mínimo 2. Flag relevante: o copiar
 e-mail funciona, mas usa o `document.execCommand` descontinuado em vez da Clipboard API.
 
+### Gabriel Scarpat — 93% · Reentrega
+Entrega forte e bem-acabada — tema escuro editorial, `scroll-snap`, copiar e-mail com
+efeito de scramble, typewriter, menu hambúrguer que fecha no clique fora e no `Esc`.
+Acertou o **sistema tipográfico** (as 5 variáveis de tamanho declaradas e usadas), o
+gargalo nº 1 da turma. Dois bloqueadores: responsividade com só um breakpoint e tema
+sem `prefers-color-scheme` na primeira visita. Flags: pasta `images/` em vez de
+`assets/`, sem `<header>`, foco via `:focus` em vez de `:focus-visible`.
+
 ### Atos Barros — 92% · Reentrega
 Um dos projetos mais bem-acabados da turma — flip card 3D, `:focus-visible` global,
 três breakpoints, sete variáveis tipográficas todas usadas, acessibilidade acima do
@@ -108,15 +119,25 @@ API** — a página tem só links `mailto:`, que não cumprem o requisito. Bug m
 regra CSS quebrada no breakpoint de 520px (vírgula sobrando + seletor vazio) faz os
 botões não receberem `width: 100%` no mobile. Repositório fora do padrão de nome (`card`).
 
-### Maria Clara Guimarães — 92% · Reentrega
-O único bloqueador é a **ausência do vídeo embedded**. Sistema de variáveis, tema,
-IntersectionObserver e dois extras (typewriter e terminal) estão completos. HTML perde
-meio ponto pelo uso de `<br>` para montar lista.
+### Maria Clara Guimarães — 95% · Reentrega (v2)
+O vídeo embedded — único bloqueador da v1 — foi adicionado e funciona; a mídia agora
+está completa. O que segura a aprovação é um bug de copia-cola: a `<section id="video">`
+ficou aninhada dentro de outra idêntica, gerando `id` duplicado e o título "Vídeo"
+renderizado duas vezes. Correção de minutos. Sistema de variáveis, tema, dois extras e
+acessibilidade seguem completos.
 
 ### Gabriela Lacerda — 91% · Reentrega
 Projeto tecnicamente sólido. O bloqueador é o **sistema tipográfico**: as 4 variáveis
 de fonte estão declaradas no `:root`, mas só uma é usada — os demais tamanhos estão
 chumbados. Correção pequena. Menu some no mobile (flag).
+
+### Ana Júlia Rossi — 88% · Reentrega (v3)
+Salto expressivo: a v3 é uma reescrita completa. Tema com `prefers-color-scheme`,
+Clipboard API real (o `alert()` da v1/v2 saiu), `IntersectionObserver`, sistema
+tipográfico e variáveis CSS — tudo entrou. Restam dois bloqueadores pequenos: as
+imagens não renderizam (os `src` apontam para `assets/`, mas os arquivos estão na
+raiz — bug herdado da v2) e a responsividade tem só um breakpoint. Flags de HTML: o
+botão "voltar ao topo" está fora do `<body>` e há um `</button>` órfão no `<nav>`.
 
 ### Augusto Gaipo — 72% · Reentrega
 A página visualmente mais bem-acabada da turma (blobs animados, textura de ruído, anel
@@ -164,11 +185,14 @@ Clipboard, IntersectionObserver e typewriter de uma vez. Falta vídeo, 2 fotos,
 variáveis CSS e sistema tipográfico. A pontuação parcial reflete código presente
 porém não funcional.
 
-### Ana Júlia Rossi — 32% · Reentrega (v2)
-Houve progresso real desde a v1 (HTML não está mais embaralhado, dark mode persistente
-foi adicionado). Ainda faltam: vídeo, variáveis CSS, sistema tipográfico, responsividade,
-animação de entrada e interação extra; o copiar e-mail ainda usa `alert()`. Os caminhos
-`assets/` apontam para uma pasta inexistente — nenhuma imagem aparece.
+### Henrique Bomfim — 33% · Reentrega
+Entrega de apenas **HTML e CSS** — não existe `script.js`, então nenhuma das três
+interações obrigatórias nem a extra. Faltam também toda a mídia (zero fotos, zero
+vídeo), a responsividade (nenhuma `@media`), o tema claro/escuro e o sistema
+tipográfico em variáveis. O que existe é bem feito: HTML semântico forte (`<aside>`,
+`<main>`, `<section>`, `<nav>`), Grid e Flexbox, variáveis de cor no `:root` e um
+layout de currículo limpo — daí os pontos em layout, design e organização CSS. O
+projeto está pela metade: falta a camada de comportamento e a de mídia.
 
 ### André Coelho — 29% · Reentrega
 Entrega de apenas **HTML e CSS** — não existe arquivo `script.js`, então nenhuma das
@@ -188,19 +212,24 @@ sem vídeo, só uma foto, sem responsividade, sem tema, sem variáveis CSS. A id
 
 ## Leitura do grupo
 
-- **Média da turma:** ~67% (15 entregas). Mediana: 71% (Felipe).
-- **Aprovação:** 1 de 15 (Laura). As outras 14 entregas precisam de reentrega.
-- **Gargalo nº 1 — Sistema tipográfico:** 11 de 15 não cumprem plenamente. Continua
-  sendo, com folga, o critério mais reprovado da turma. Só Laura, Maria Clara, Cauã e
-  Atos têm a escala de fontes em variáveis e efetivamente usada. O erro recorrente é
-  declarar a escala no `:root` e não usá-la (Gabriela, João), ou nem declarar (Augusto,
-  Felipe, André e a maioria). Vale uma revisão coletiva sobre o tema.
+- **Média da turma:** ~70% (17 entregas). Mediana: 72% (Augusto).
+- **Aprovação:** 1 de 17 (Laura). As outras 16 entregas precisam de reentrega.
+- **Gargalo nº 1 — Sistema tipográfico:** 11 de 17 não cumprem plenamente. Continua
+  sendo, com folga, o critério mais reprovado da turma — mas as reentregas mais recentes
+  o estão fechando. Têm a escala de fontes em variáveis e efetivamente usada: Laura,
+  Maria Clara, Cauã, Atos, Ana Júlia (v3) e Gabriel Scarpat. O erro recorrente segue
+  sendo declarar a escala no `:root` e não usá-la (João), ou nem declarar (Augusto,
+  Felipe, André, Henrique e a maioria). Vale uma revisão coletiva sobre o tema.
 - **Gargalo nº 2 — Mídia (vídeo):** o vídeo embedded falta ou está incompleto em 10 das
-  15 entregas. Só Gabriela, João, Laura, Cauã e Atos entregaram a mídia completa.
+  17 entregas. Entregaram a mídia completa: Gabriela, João, Laura, Cauã, Atos, Maria
+  Clara (v2) e Gabriel Scarpat.
 - **Gargalo nº 3 — Acessibilidade:** `rel="noopener noreferrer"`, foco visível e `alt`
-  descritivo continuam esquecidos com frequência (8 de 15 com falha). Em contrapartida,
-  as entregas recentes mais fortes (Atos, Cauã) trataram acessibilidade com cuidado
-  acima do esperado — `aria-*`, `:focus-visible`, navegação por teclado.
+  descritivo continuam esquecidos com frequência (9 de 17 com falha). Em contrapartida,
+  as entregas recentes mais fortes (Atos, Cauã, Ana Júlia na v3) trataram acessibilidade
+  com cuidado — `alt` descritivo, `:focus-visible`, navegação por teclado.
+- **Gargalo recorrente — `prefers-color-scheme`:** entre quem faz o tema claro/escuro,
+  esquecer de detectar a preferência do sistema na primeira visita é o erro mais comum
+  (Augusto, Gabriel Scarpat, Bernardo, Felipe). É meio ponto fácil de recuperar.
 - **Padrão recorrente — talento visual × disciplina técnica:** as melhores entregas em
   *design/criatividade* (Augusto, Vitor, Felipe) reprovam não por falta de capacidade,
   mas por não seguir a checklist da seção 7. O caso do Vitor é o mais nítido: execução

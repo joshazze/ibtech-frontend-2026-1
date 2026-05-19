@@ -40,3 +40,7 @@ ibtech-projeto01-mariaclara/
 ├── README.md
 │
 └── assets/
+
+## Como executar
+
+Abra o arquivo `index.html` no navegador ou utilize a extensão Live Server no VS Code.

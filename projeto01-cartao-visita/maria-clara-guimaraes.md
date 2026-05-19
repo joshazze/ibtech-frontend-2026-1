@@ -1,3 +1,134 @@
+# Revisão v2 — Projeto 01 Cartão de Visita
+
+**Aluna:** Maria Clara Guimarães
+**Turma:** IbTech Frontend 2026.1
+**Status:** Reentrega necessária
+**Reentrega de:** revisão v1 (2026-05-15, abaixo no histórico)
+
+Maria Clara, você resolveu o bloqueador. O vídeo embedded — o único item que segurava a aprovação da v1 — está na página e funciona. Você também já tinha atacado as flags da revisão anterior: o `<br>` da seção "Sobre" virou uma lista `<ul>`, e o copiar e-mail ganhou `try/catch`. O projeto está praticamente pronto.
+
+Praticamente. Há **um** problema que veio com o vídeo: na pressa de adicionar a seção, ela ficou duplicada. É um bug de copia-cola, de correção rápida — mas como gera HTML inválido e um defeito visível na página, ele entra como bloqueador. Vou explicar exatamente o que aconteceu e como desfazer.
+
+---
+
+## O que você corrigiu desde a v1
+
+- **Vídeo embedded adicionado** (`assets/video.mp4`, embedado com `<video controls>`). O bloqueador único da v1 está resolvido — a mídia agora está completa: 3 fotos + 1 vídeo.
+- **`<br>` virou lista de verdade.** A seção "Sobre" não monta mais a lista de ferramentas com `<br>`; agora é um `<ul>` com `<li>` e `<strong>` nas categorias (`index.html:110-114`), como a revisão anterior pediu.
+- **Copiar e-mail com `try/catch`** (`script.js:38-49`). Se a cópia falhar, você mostra "Erro ao copiar" em vez de deixar o erro silencioso no Console.
+
+---
+
+## Bloqueador
+
+### 1. A seção de vídeo está duplicada — uma `<section>` dentro da outra
+
+Olhe o trecho do vídeo no `index.html` (linhas 177-190):
+
+```html
+<section id="video" class="video-section section-hidden">
+  <h2>Vídeo</h2>
+
+  <section id="video" class="video-section section-hidden">
+  <h2>Vídeo</h2>
+
+  <div class="video-wrapper">
+    <video controls>
+      <source src="assets/video.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+  </div>
+</section>
+</section>
+```
+
+Repare: a `<section id="video">` abre, vem um `<h2>Vídeo</h2>` — e aí, **dentro dela, abre outra `<section id="video">` idêntica**, com outro `<h2>Vídeo</h2>`. O conteúdo real (o `<div class="video-wrapper">` com o vídeo) está só dentro da segunda. No fim, os dois `</section>` fecham as duas.
+
+Isso causa dois problemas concretos:
+
+- **A página mostra o título "Vídeo" duas vezes**, um embaixo do outro, antes do vídeo. É um defeito visível.
+- **O atributo `id="video"` aparece duas vezes no documento.** Um `id` tem que ser único na página inteira — é a regra mais básica de HTML. Com dois `id="video"`, qualquer link âncora `#video` (e você tem um, no menu) fica ambíguo, e o HTML não valida.
+
+**Como corrigir:** apague a `<section>` de fora (e o `</section>` extra). Deixe só uma:
+
+```html
+<section id="video" class="video-section section-hidden">
+  <h2>Vídeo</h2>
+
+  <div class="video-wrapper">
+    <video controls>
+      <source src="assets/video.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+  </div>
+</section>
+```
+
+Uma `<section>`, um `id`, um `<h2>`. O vídeo continua funcionando igual — você só remove a casca duplicada por fora.
+
+---
+
+## O que precisa arrumar (flags)
+
+Não são linhas vermelhas, mas resolva junto.
+
+1. **A lista de ferramentas está dentro de um `<p>`** (`index.html:105-115`). Você corrigiu o `<br>` — ótimo —, mas o `<ul>` novo ficou colocado **dentro** de um `<p>` que abre na linha 105 e só fecha na 115, depois do `</ul>`. Uma lista (`<ul>`) é um elemento de bloco e não pode morar dentro de um parágrafo (`<p>`); o navegador "conserta" fechando o `<p>` sozinho antes do `<ul>`, o que bagunça a estrutura. Tire o `<ul>` de dentro do `<p>`:
+
+   ```html
+   <p>
+     Busco construir uma base sólida em tecnologia aplicável a futuros projetos.
+     Já tenho domínio sobre ferramentas digitais de criação e edição mais básicas:
+   </p>
+
+   <ul>
+     <li><strong>Edição de mídia:</strong> Adobe Photoshop, PicsArt, Canva, Adobe Lightroom e CapCut</li>
+     <li><strong>Programação:</strong> Visual Studio Code, GitHub, HTML e CSS básico</li>
+     <li><strong>Produtividade:</strong> Microsoft PowerPoint e Microsoft Word</li>
+   </ul>
+   ```
+
+   O `<p>` fecha **antes** do `<ul>` começar. São dois elementos irmãos, não um dentro do outro.
+
+2. **README com bloco de código não fechado** (`README.md:34`). A seção "Estrutura do projeto" abre um bloco com ` ```txt `, mas o arquivo termina sem fechar o ` ``` `. Por isso o texto "Como executar" que vem depois aparece como código. Feche o bloco logo depois da árvore de arquivos.
+
+---
+
+## Pontos menores
+
+Polimento. Não pesam na nota.
+
+- **Imagens pesadas.** `photo1.jpg` (~1,8 MB) e `photo2.jpg` (~2,1 MB) são grandes pra fotos numa página web. Vale comprimir (qualquer compressor de imagem online resolve) — a página carrega mais rápido, principalmente no celular.
+- **Duas variáveis tipográficas sem uso.** `--fs-sm` e `--fs-base` estão declaradas no `:root` mas não aparecem aplicadas em nenhum elemento. Ou use-as, ou remova — não é erro, é só arrumação.
+- **`h1` mobile com tamanho chumbado** (`style.css:385`). No media query o `h1` vira `2.2rem` fixo, fugindo do seu próprio sistema de variáveis. Vale criar uma variável pra esse tamanho ou usar `clamp()` no `h1`, pra ele se ajustar sozinho.
+
+---
+
+## Checklist de reentrega
+
+1. [ ] Remover a `<section id="video">` duplicada — deixar só uma (bloqueador 1)
+2. [ ] Tirar o `<ul>` de dentro do `<p>` na seção "Sobre" (flag 1)
+3. [ ] Fechar o bloco de código ` ``` ` no README (flag 2)
+4. [ ] (Opcional) Comprimir `photo1.jpg` e `photo2.jpg`; usar ou remover `--fs-sm`/`--fs-base`
+5. [ ] Validar o HTML no [validator.w3.org](https://validator.w3.org/#validate_by_input) — confirmar que não há `id` duplicado
+6. [ ] Testar em 360px e 1920px no DevTools antes de reenviar
+
+---
+
+## Considerações finais
+
+Maria Clara, o status "reentrega" aqui é quase uma formalidade: você cumpriu o que a v1 pediu e o projeto está completo. O que segura é um único bug de copia-cola — a seção de vídeo entrou em dobro. Apague a casca duplicada, tire o `<ul>` de dentro do `<p>`, feche o bloco do README, e a aprovação vem na próxima rodada.
+
+Antes de reenviar, abre a página no navegador e confere visualmente: o título "Vídeo" tem que aparecer **uma vez** só. Roda o HTML no validador pra garantir que não sobrou `id` repetido. São cinco minutos de ajuste numa entrega que, no resto, está entre as melhores da turma.
+
+Manda a v3.
+
+---
+*Revisão v2 por Josh — 2026-05-19*
+
+---
+
+# Histórico — Revisão v1
+
 # Revisão — Projeto 01 Cartão de Visita
 
 **Aluna:** Maria Clara Guimarães

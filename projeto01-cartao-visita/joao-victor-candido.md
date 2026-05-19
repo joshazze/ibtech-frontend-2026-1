@@ -1,3 +1,50 @@
+# Revisão v2 — Projeto 01 Cartão de Visita
+
+**Aluno:** João Victor Cândido
+**Turma:** IbTech Frontend 2026.1
+**Status:** Reentrega necessária
+**Reentrega de:** revisão v1 (2026-05-18, abaixo no histórico)
+
+João, o seu link chegou até a Diretoria Técnica como "versão corrigida" — mas, ao abrir o repositório pra avaliar a reentrega, encontramos o seguinte: **o repositório não tem nenhum commit novo desde a revisão anterior.** O último commit (`dc0a7cf`, "adiciona readme do projeto") é de 14/05, e a revisão v1 já foi feita em cima exatamente desse estado, em 18/05.
+
+Em outras palavras: o que está publicado hoje é idêntico ao que foi revisado. Pode ter acontecido uma de duas coisas — você corrigiu localmente e esqueceu de dar `git push`, ou o link foi reenviado por engano antes da correção. De qualquer forma, **o bloqueador da v1 continua valendo na íntegra**, porque a página não mudou.
+
+---
+
+## O bloqueador continua o mesmo: sistema tipográfico pela metade
+
+A sua entrega é forte — está entre as melhores da turma, com as três interações obrigatórias corretas, vídeo, responsividade e acessibilidade caprichada. O único item que segura a aprovação é o **sistema tipográfico**.
+
+Você declarou quatro variáveis de tamanho de fonte no `:root` (`style.css:12-15`):
+
+```css
+--tamanho-pequeno: 0.9rem;
+--tamanho-normal: 1rem;
+--tamanho-medio: 1.4rem;
+--tamanho-grande: 2.4rem;
+```
+
+Mas só **duas** delas são usadas de fato — `--tamanho-medio` no `h2` e `--tamanho-grande` no `h1`. As outras duas (`--tamanho-pequeno` e `--tamanho-normal`) estão declaradas e nunca aplicadas; parágrafos, lista, botões e rodapé caem no tamanho padrão do navegador. E o `h1` mobile chumba `font-size: 2rem` (`style.css:234`), um valor solto fora do sistema.
+
+A tabela da seção 7 pede 4 tamanhos **definidos como variáveis E reaproveitados com consistência** — a segunda metade do critério é o que falta.
+
+**A correção é a mesma da revisão v1** (logo abaixo, no histórico): aplique `--tamanho-pequeno` e `--tamanho-normal` nos elementos que hoje estão sem `font-size`, e troque o `2rem` chumbado do `h1` mobile por uma variável. O passo a passo completo, com o código pronto, está na revisão anterior.
+
+---
+
+## Próximo passo
+
+João, isto aqui é só um aviso de rota: o projeto não foi reprovado de novo — ele simplesmente **não chegou a ser reentregue**. Faça a correção do sistema tipográfico (é pequena, conforme a v1 detalha), confirme com `git status` que os arquivos foram salvos, e **rode `git push`** pra publicar de verdade. Quando o repositório tiver o commit novo, a Diretoria revisa a reentrega.
+
+Antes de reenviar o link, abra a página publicada no GitHub Pages e confira que a mudança está lá. Foi só um item — você está a um passo.
+
+---
+*Revisão v2 por Josh — 2026-05-19*
+
+---
+
+# Histórico — Revisão v1
+
 # Revisão — Projeto 01 Cartão de Visita
 
 **Aluno:** João Victor Cândido
