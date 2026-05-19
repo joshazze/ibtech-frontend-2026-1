@@ -96,6 +96,26 @@ pergunta isolada não reprova; travar em todas, sim. A pergunta de "mudança ao 
 
 ---
 
+## Gabriel Scarpat
+
+1. Hoje, na primeira visita de alguém que nunca abriu a página, o site sempre abre no tema escuro. Abra o `script.js` e explique por quê — o que está faltando pra ele respeitar a preferência de tema do sistema operacional do usuário?
+2. Você declarou cinco variáveis de tamanho de fonte no `:root` (`--fs-sm` a `--fs-xxl`) e usou todas. Escolha uma — por exemplo `--fs-xl` — e me mostre em quantos elementos diferentes ela aparece. Qual a vantagem disso sobre escrever o tamanho direto em cada regra?
+3. O seu botão de copiar e-mail faz um efeito de "embaralhar letras" antes de mostrar "Copiado!". Abra o `script.js` e explique como o `setInterval` e a variável `iteracoes` produzem esse efeito.
+4. **Mudança ao vivo:** o seu CSS tem só uma media query (`max-width: 768px`). Adicione um segundo breakpoint que faça os `.midia-card` — hoje fixos em 420×420px — caberem bem numa tela de tablet.
+5. O seu menu mobile fecha ao clicar fora dele e ao apertar `Esc`. Mostre os dois trechos no `script.js`. Como o código sabe que o clique foi "fora" do menu?
+
+---
+
+## Henrique Bomfim
+
+1. O seu projeto não tem um arquivo `script.js`. A diretriz pede três comportamentos obrigatórios em JavaScript — quais são os três, e o que cada um faz na página?
+2. Você usou `<aside>`, `<main>`, `<section>` e `<nav>` no HTML. Explique o que a tag `<aside>` representa e por que ela é uma escolha adequada pra sua barra lateral. Que duas tags semânticas listadas na diretriz ainda faltam na sua página?
+3. No seu CSS, a sidebar (`<aside>`) usa `position: sticky` e largura fixa de `17.5rem`, e o `body` é um flex em linha. O que acontece com esse layout num celular de 360px de largura? Por que falta uma media query aqui?
+4. **Mudança ao vivo:** os seus tamanhos de fonte estão escritos direto em cada regra (`0.625rem`, `1.75rem`, `2.375rem`...). Crie uma variável `--fs-xl` no `:root` e aplique-a no `.section-title`.
+5. A linha "Mídia" da diretriz pede pelo menos 3 fotos e 1 vídeo embedded — a sua página é toda texto. Dentro da estrutura de seções que você já montou, onde você encaixaria as fotos e o vídeo?
+
+---
+
 ## João Victor Cândido
 
 1. No seu `script.js`, a função `temaInicial()` decide qual tema mostrar. Explique o que acontece na primeiríssima visita de alguém que nunca abriu a página — qual linha roda e como ela escolhe entre claro e escuro?

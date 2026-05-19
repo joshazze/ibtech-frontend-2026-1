@@ -1,3 +1,137 @@
+# Revisão v3 — Projeto 01 Cartão de Visita
+
+**Aluna:** Ana Júlia Rossi
+**Turma:** IbTech Frontend 2026.1
+**Status:** Reentrega necessária
+**Reentrega de:** revisão v2 (2026-05-15, abaixo no histórico)
+
+Ana Júlia, antes de qualquer outra coisa: **que salto.** A v3 não é um ajuste da v2 — é um projeto novo. Comparando com a versão anterior, você adicionou o vídeo, reescreveu o CSS inteiro com variáveis, montou o sistema tipográfico, trocou o `alert` pela Clipboard API de verdade, implementou o `IntersectionObserver`, criou um botão de voltar ao topo. A lista de bloqueadores da v2 tinha sete itens; nesta v3 sobraram **dois**, e os dois são pequenos. Você está perto.
+
+Vou ser direta e curta: o que está bom (que é quase tudo), os dois bloqueadores, umas flags de HTML, e um checklist enxuto.
+
+---
+
+## O que já está bom
+
+- **A página agora tem estrutura de verdade.** `<header>`, `<nav>`, `<main>`, `<section>` e `<footer>` no lugar certo, um `<h1>` único, hierarquia de títulos sem pular nível. Lembra do HTML embaralhado da v1, com conteúdo depois do `</html>`? Sumiu por completo.
+- **Tema claro/escuro completo** (`script.js:37-85`). Toggle visível, salva em `localStorage`, e — o detalhe que muita gente esquece — respeita `prefers-color-scheme` na primeira visita (`script.js:41-48`). O ícone troca entre 🌙 e ☀️. Esse critério está fechado.
+- **Copiar e-mail com a Clipboard API real** (`script.js:5-33`). O `alert()` que mentia "copiado" na v1 e v2 virou `navigator.clipboard.writeText` de verdade, com `data-email` no HTML, `try/catch`, e feedback que some depois de 2 segundos. Exatamente o que a diretriz pede.
+- **Animação de entrada com `IntersectionObserver`** (`script.js:89-109`), com `unobserve` depois que a seção aparece — anima uma vez só, que é o comportamento certo.
+- **Botão "voltar ao topo"** (`script.js:111-135`) como interação JS extra, além das três obrigatórias.
+- **Sistema de variáveis CSS.** `:root` com paleta de cores e cinco variáveis de tamanho de fonte (`--fs-sm` a `--fs-hero`), usadas no `h1`, nos `h2`, no nav, na descrição. O `clamp()` no `--fs-hero` foi um capricho a mais.
+- **Links externos seguros.** Instagram, GitHub e LinkedIn com `target="_blank"` e `rel="noopener noreferrer"`.
+- **`:focus-visible` com outline** (`style.css:266-270`) — acessibilidade de teclado contemplada.
+
+---
+
+## Bloqueadores
+
+Pela tabela da seção 7, cada linha vermelha exige reentrega. Aqui há duas.
+
+### 1. As imagens não aparecem — o caminho continua errado
+
+Este é o mesmo bug da v2, e é o mais urgente: **hoje a página não mostra nenhuma foto.** O HTML procura as imagens dentro de uma pasta `assets/`:
+
+```html
+<img src="assets/minhafoto.jpg" ...>   <!-- index.html:106 -->
+<img src="assets/ibmec.jpg" ...>        <!-- index.html:176 -->
+<img src="assets/estudando.jpg" ...>    <!-- index.html:183 -->
+```
+
+E o favicon também: `<link rel="icon" href="assets/favicon.ico">` (`index.html:8`).
+
+Mas **não existe uma pasta `assets/` no repositório.** Os arquivos `minhafoto.jpg`, `ibmec.jpg` e `estudando.jpg` estão soltos na raiz. Como o caminho aponta pra uma pasta que não existe, o navegador não acha as imagens e a área da foto fica vazia.
+
+**Como corrigir (escolha uma):**
+
+- **Opção A (recomendada, é o que a diretriz pede):** crie a pasta `assets/` na raiz e mova as três imagens — e o favicon — pra dentro dela. Aí os caminhos do HTML ficam corretos sem você mexer no HTML.
+- **Opção B:** mantenha os arquivos na raiz e tire o `assets/` dos caminhos: `src="minhafoto.jpg"`, `src="ibmec.jpg"`, etc.
+
+A Opção A é melhor porque a seção 5 da diretriz pede a pasta `assets/` como parte da estrutura mínima.
+
+> **Aproveite a faxina:** o repositório tem `estudando.jpg.jpeg` e `ibmec.jpg.jpeg` — arquivos com extensão dupla, sobra de algum salvamento. Como você já tem os `.jpg` corretos, esses dois `.jpg.jpeg` podem ser apagados.
+
+### 2. Só um breakpoint de responsividade
+
+A linha "Responsividade" da tabela pede **pelo menos dois breakpoints**, pra a página funcionar bem de 360px (celular pequeno) a 1920px (monitor grande). O seu CSS tem só um: `@media (max-width: 768px)` (`style.css:329`).
+
+Esse breakpoint único cobre o salto desktop→celular, mas deixa de fora a faixa intermediária — tablets e celulares grandes (de ~600px a ~1000px). Adicione um segundo ponto de ajuste. Sugestão de um breakpoint de tablet:
+
+```css
+/* tablet — até 1024px */
+@media (max-width: 1024px) {
+    .hero { padding: 4rem 6%; gap: 2rem; }
+    .foto-container img { width: 20rem; height: 20rem; }
+    .sobre-section,
+    .skills-section,
+    .galeria,
+    .video-section,
+    .contato-section { padding: 4rem 6%; }
+}
+```
+
+Depois, no DevTools (F12 → ícone de celular), teste em 360px, 768px, 1024px e 1440px antes de reenviar.
+
+---
+
+## Flags — HTML fora de ordem
+
+Não derrubam sozinhas, mas a tabela cita "fechar tudo direito, o HTML tem que validar". Há dois pontos:
+
+1. **O botão "voltar ao topo" está fora do `<body>`** (`index.html:53`). A tag `<button id="topo-btn">↑</button>` aparece **entre** o `</head>` e o `<body>` — num lugar onde elemento nenhum pode existir. O navegador "conserta" jogando o botão pra dentro do body, mas é sorte, não estrutura. Mova o botão pra **dentro** do `<body>`, logo antes do `</body>` (perto do `<script>`):
+
+   ```html
+       <button id="topo-btn" type="button" aria-label="Voltar ao topo">↑</button>
+       <script src="script.js"></script>
+   </body>
+   ```
+
+2. **Há um `</button>` órfão dentro do `<nav>`** (`index.html:61`) — uma tag de fechamento sem abertura correspondente, logo no começo da navegação. É provavelmente sobra de um copia-cola. Apague essa linha.
+
+Depois de arrumar os dois, cola o HTML no [validator.w3.org](https://validator.w3.org/#validate_by_input) — se ele disser "no errors", o esqueleto está limpo.
+
+---
+
+## Pontos menores
+
+Polimento. Não pesam na nota.
+
+- **`minhafoto.jpg` tem ~2,2 MB.** É bem pesado pra uma foto numa página web. Vale reduzir (qualquer site de compressão de imagem resolve) pra página carregar mais rápido.
+- **A variável `--fs-base` está declarada e nunca usada** (`style.css:22`). Ou aplique ela em algum elemento de texto base (por exemplo no `body`), ou remova — variável declarada e não usada é ruído.
+- **README com bloco de código aberto e não fechado.** O `README.md` termina com ` ```bash ` e a linha `python3 -m http.server 8000`, mas sem fechar o ` ``` `. Feche o bloco no fim do arquivo.
+
+---
+
+## Checklist de reentrega
+
+Sugestão de ordem:
+
+1. [ ] Criar a pasta `assets/` e mover as 3 imagens + o favicon pra dentro dela (bloqueador 1)
+2. [ ] Apagar os arquivos `estudando.jpg.jpeg` e `ibmec.jpg.jpeg` (extensão dupla)
+3. [ ] Adicionar um segundo breakpoint de responsividade (bloqueador 2)
+4. [ ] Mover o `<button id="topo-btn">` pra dentro do `<body>` (flag 1)
+5. [ ] Apagar o `</button>` órfão dentro do `<nav>` (flag 2)
+6. [ ] Validar o HTML no validator.w3.org — só reentregar quando der "no errors"
+7. [ ] (Opcional) Comprimir `minhafoto.jpg`, usar `--fs-base`, fechar o bloco do README
+8. [ ] Testar em 360px, 768px, 1024px e 1920px no DevTools antes de reenviar
+
+---
+
+## Considerações finais
+
+Ana Júlia, leia esta revisão como o que ela é: **uma reta final.** Da v1 pra cá foram três versões, e a curva de evolução é nítida — você saiu de um HTML embaralhado sem JavaScript pra uma página com tema, animações, Clipboard API e sistema de variáveis. Isso não é sorte; é trabalho, e dá pra ver.
+
+Os dois bloqueadores que restam não são erro de raciocínio, são **acabamento**: um é mover arquivos pra uma pasta, o outro é colar um bloco de `@media`. Nenhum dos dois leva mais que dez minutos. Arruma o caminho das imagens primeiro — assim você abre a página e finalmente vê o resultado completo do que construiu, com as fotos no lugar.
+
+Faz o checklist com calma, testa no navegador, e manda a v4. Você está a um passo.
+
+---
+*Revisão v3 por Josh — 2026-05-19*
+
+---
+
+# Histórico — versões anteriores
+
 # Revisão v2 — Projeto 01 Cartão de Visita
 
 **Aluna:** Ana Júlia Rossi

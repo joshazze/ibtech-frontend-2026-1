@@ -1,3 +1,44 @@
+# Revisão v2 — Projeto 01 Cartão de Visita
+
+**Aluno:** Augusto Gaipo
+**Turma:** IbTech Frontend 2026.1
+**Status:** Reentrega necessária
+**Reentrega de:** revisão v1 (2026-05-18, abaixo no histórico)
+
+Augusto, o seu link chegou à Diretoria Técnica como "versão corrigida" — mas, ao abrir o repositório pra avaliar a reentrega, encontramos o seguinte: **o repositório não tem nenhum commit novo desde a revisão anterior.** O último commit (`e076200`, "docs:create readme") é de 13/05, e a revisão v1 foi feita exatamente em cima desse estado, em 18/05.
+
+Ou seja: o que está publicado hoje é idêntico ao que já foi revisado. Provavelmente você corrigiu localmente e esqueceu de dar `git push`, ou o link foi reenviado antes da correção. De qualquer forma, **os bloqueadores da v1 continuam valendo na íntegra**, porque a página não mudou.
+
+---
+
+## Os bloqueadores continuam os mesmos
+
+A sua página é, visualmente, uma das mais bem-acabadas da turma — e o JavaScript está completo. O que segura a aprovação são **seis requisitos da diretriz** que ficaram de fora, e quase todos se resolvem reorganizando o que você já tem. Em resumo:
+
+1. **O projeto inteiro está num arquivo só.** CSS dentro de um `<style>` e JS dentro de um `<script>`, tudo no `index.html`. A diretriz pede `style.css` e `script.js` separados.
+2. **As seções de conteúdo são `<div>`, não `<section>`.** Os quatro blocos ("Sobre mim", "Objetivos", "Fotos & Vídeo", "Contato") precisam de tags semânticas.
+3. **O `alt` das fotos não descreve nada** — "Foto 1", "Foto 2", "Foto 3".
+4. **Não há sistema tipográfico em variáveis** — os tamanhos de fonte estão soltos em cada regra.
+5. **Só há um breakpoint de responsividade** — a diretriz pede pelo menos dois.
+6. **O tema não respeita `prefers-color-scheme` na primeira visita** — abre sempre no escuro.
+
+O passo a passo de cada um, com o código pronto, está na **revisão v1** (logo abaixo, no histórico). Nada ali mudou — vale reabrir aquele documento e seguir o checklist item por item.
+
+---
+
+## Próximo passo
+
+Augusto, isto não é uma segunda reprovação — o projeto simplesmente **não chegou a ser reentregue**. Faça as correções da v1 (a maioria é reorganização, não refação), confirme com `git status` que os arquivos foram salvos, e **rode `git push`** pra publicar de verdade. Aproveite e renomeie o repositório de `cardvisita` pra `ibtech-projeto01-augusto`, como a diretriz pede.
+
+Quando o repositório tiver os commits novos, a Diretoria revisa a reentrega. Antes de reenviar o link, abra a página publicada e confira que as mudanças estão lá. O capricho visual já está feito — agora é alinhar com a diretriz e publicar.
+
+---
+*Revisão v2 por Josh — 2026-05-19*
+
+---
+
+# Histórico — Revisão v1
+
 # Revisão — Projeto 01 Cartão de Visita
 
 **Aluno:** Augusto Gaipo

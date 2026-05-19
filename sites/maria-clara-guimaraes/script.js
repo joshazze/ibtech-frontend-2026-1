@@ -36,18 +36,15 @@ const copyEmailButton =
   document.querySelector("#copy-email");
 
 copyEmailButton.addEventListener("click", async () => {
-
-  await navigator.clipboard.writeText(
-    "gmariaclaraaa@gmail.com"
-  );
-
-  copyEmailButton.textContent = "Copiado!";
+  try {
+    await navigator.clipboard.writeText("gmariaclaraaa@gmail.com");
+    copyEmailButton.textContent = "Copiado!";
+  } catch {
+    copyEmailButton.textContent = "Erro ao copiar";
+  }
 
   setTimeout(() => {
-
-    copyEmailButton.textContent =
-      "Copiar e-mail";
-
+    copyEmailButton.textContent = "Copiar e-mail";
   }, 2000);
 });
 
@@ -89,7 +86,7 @@ const typewriter =
   document.querySelector("#typewriter");
 
 const phrase =
-  "Criando soluções atraves da tecnologia, e transformando ideias em experiencias digitais";
+  "Criando soluções através da tecnologia, e transformando ideias em experiências digitais";
 
 let index = 0;
 
